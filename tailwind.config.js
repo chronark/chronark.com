@@ -8,7 +8,7 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
-				display: ["var(--font-pangea)"],
+				display: ["var(--font-grotesk)"],
 			},
 
 			animation: {
@@ -31,10 +31,13 @@ module.exports = {
 				},
 				"fade-left": {
 					"0%": {
+						transform: "translateX(100%)",
 						opacity: "0%",
-
 					},
-				
+					"50%": {
+						transform: "translateX(0%)",
+					},
+
 					"75%": {
 						opacity: "100%",
 					},
@@ -44,9 +47,14 @@ module.exports = {
 				},
 				"fade-right": {
 					"0%": {
+						transform: "translateX(-100%)",
+
 						opacity: "0%",
 					},
-				
+					"50%": {
+						transform: "translateX(0%)",
+					},
+
 					"75%": {
 						opacity: "100%",
 					},
@@ -70,7 +78,7 @@ module.exports = {
 
 					"100%": {
 						"line-height": "100%",
-						"letter-spacing": "0em",
+						"letter-spacing": "0.125em",
 
 						opacity: "100%",
 					},
