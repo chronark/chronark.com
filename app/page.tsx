@@ -32,9 +32,9 @@ export default function Home() {
 			</h1>
 
 			<div className="hidden animate-glow md:block w-screen  animate-fade-right h-px bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-			<div className="my-16 animate-fade-in">
+			<div className="my-16 animate-fade-in text-center">
 				<h2 className="text-zinc-500  text-sm ">
-					Building serverless and open source solutions at{" "}
+					Hi, I'm building serverless and open source solutions at{" "}
 					<Link
 						href="https://upstash.com"
 						className="underline hover:text-zinc-300 duration-500"
@@ -43,7 +43,7 @@ export default function Home() {
 					</Link>
 
 					<br />
-					and building{" "}
+					and{" "}
 					<Link
 						href="https://planetfall.io"
 						className="underline hover:text-zinc-300 duration-500"
