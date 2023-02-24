@@ -52,7 +52,9 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={[inter.variable, pangea.variable].join(" ")}>
 			<body
-				className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined}`}
+				className={`bg-black ${
+					process.env.NODE_ENV === "development" ? "debug-screens" : undefined
+				}`}
 			>
 				{children}
 			</body>
