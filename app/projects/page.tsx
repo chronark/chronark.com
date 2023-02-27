@@ -1,155 +1,15 @@
 import Link from "next/link";
 import React from "react";
-
-type Project = {
-	slug: string;
-	title: string;
-	description: string;
-	href: string;
-	date?: string;
-};
-
-const projects: Project[] = [
-	{
-		slug: "upstash-kafka",
-		title: "@upstash/kafka",
-		href: "https://github.com/upstash/upstash-kafka",
-		description:
-			"A fully typed Kafka client built for Upstash Kafka and HTTP, perfect for serverless and edge runtimes.",
-		date: "2022-01-08",
-	},
-	{
-		slug: "upstash-redis",
-		title: "@upstash/redis",
-		href: "https://github.com/upstash/upstash-redis",
-		description:
-			"A fully typed Redis client built for Upstash Redis and HTTP, perfect for serverless and edge runtimes.",
-		date: "2022-03-14",
-	},
-	{
-		slug: "upstash-redis",
-		title: "@upstash/ratelimit",
-		href: "https://github.com/upstash/ratelimit",
-		description:
-			"Ratelimiting library for serverless and edge runtimes. Built on top of Upstash Redis.",
-		date: "2020-06-06",
-	},
-	{
-		slug: "upstash-edge-flags",
-		title: "@upstash/edge-flags",
-		href: "https://github.com/upstash/edge-flags",
-		description: "Feature flags for edge functions.",
-		date: "2022-12-12",
-	},
-	{
-		slug: "upstash-cli",
-		title: "@upstash/cli",
-		href: "https://github.com/upstash/cli",
-		description:
-			"A CLI to provision and manage Upstash resources, including Redis and Kafka databases.",
-		date: "2022-05-16",
-	},
-	{
-		slug: "upstash-react-ui",
-		title: "@upstash/react-cli",
-		href: "https://github.com/upstash/react-ui",
-		description:
-			"A CLI React component to interact with Upstash Redis databases.",
-		date: "2023-02-05",
-	},
-	{
-		slug: "qstash",
-		title: "QStash",
-		href: "https://upstash.com/qstash",
-		description:
-			"QStash is a fully managed serverless queue and messaging service designed for the serverless era.",
-		date: "2022-07-18",
-	},
-	{
-		slug: "upstash-qstash-sdk",
-		title: "@upstash/qstash",
-		href: "https://github.com/upstash/sdk-qstash-ts",
-		description: "A typescript client and consumer for QStash.",
-		date: "2020-07-18",
-	},
-	{
-		slug: "upstash-core-analytics",
-		title: "@upstash/core-analytics",
-		href: "https://github.com/upstash/core-analytics",
-		description:
-			"Low level utilities to build analytics tools on top of Redis.",
-		date: "2023-02-13",
-	},
-	{
-		slug: "upstash-auth-analytics",
-		title: "@upstash/auth-analytics",
-		href: "https://github.com/upstash/auth-analytics",
-		description: "A library to record and analyse Auth.js user behaviour",
-	},
-	{
-		slug: "upstash-web-analytics",
-		title: "@upstash/web-analytics",
-		href: "https://github.com/upstash/auth-analytics",
-		description:
-			"A library to record and analyse web page traffic and user behaviour",
-		date: "2020-03-16",
-	},
-	{
-		slug: "upstash-ratelimit-analytics",
-		title: "Ratelimit Analytics",
-		href: "https://github.com/upstash/ratelimit",
-		description:
-			"Near realtime analytics for your ratelimits. Integrated into the @upstash/ratelimit library.",
-		date: "2023-03-01",
-	},
-	{
-		slug: "planetfall",
-		title: "Planetfall",
-		href: "https://planetfall.io",
-		description:
-			"I'm building a SAAS, that provides global latency monitoring for your APIs and websites from edge locations around the world. Have you ever wondered how fast your API is in any part of the world? Planetfall allows you to find out and monitor it continuously.",
-		date: "2023-04-01",
-	},
-	{
-		slug: "terraform-provider-vercel",
-		title: "Vercel Terraform Provider",
-		href: "https://github.com/chronark/terraform-provider-vercel",
-		description:
-			"A Terraform provider for Vercel. It has been deprecated it when Vercel rolled out their official provider.",
-		date: "2021-03-16",
-	},
-	{
-		slug: "envshare",
-		title: "EnvShare",
-		href: "https://envshare.dev",
-		description:
-			"EnvShare is a simple tool to share environment variables securely. It uses AES-GCM to encrypt your data before sending it to the server. The encryption key never leaves your browser.",
-		date: "2023-01-16",
-	},
-	{
-		slug: "redis-query",
-		title: "Redis Query",
-		href: "https://github.com/chronark/redis-query",
-		description:
-			"Client side secondary indexing for Redis. It allows you to query your Redis data efficiently. Inspired by FaunaDB indices.",
-		date: "2023-02-16",
-	},
-	{
-		slug: "access",
-		title: "@chronark/access",
-		href: "https://github.com/chronark/access",
-		description:
-			"A minimal library for access control. It is designed to be used together with opaque access tokens by providing a simple interface to define roles with different access permissions and verifying requests to resources.",
-		date: "2022-11-13",
-	},
-];
+import { allProjects, Project } from "contentlayer/generated";
+import { Navigation } from "../components/nav";
 
 export default function ProjectsPage() {
-	const featured = projects.find((project) => project.slug === "planetfall")!;
-	const top2 = projects.find((project) => project.slug === "envshare")!;
-	const top3 = projects.find((project) => project.slug === "qstash")!;
-
-	const sorted = projects
+	const featured = allProjects.find(
+		(project) => project.slug === "planetfall",
+	)!;
+	const top2 = allProjects.find((project) => project.slug === "envshare")!;
+	const top3 = allProjects.find((project) => project.slug === "qstash")!;
+	const sorted = allProjects
 		.filter(
 			(project) =>
 				project.slug !== featured.slug &&
@@ -163,24 +23,25 @@ export default function ProjectsPage() {
 		);
 
 	return (
-		<div className="py-24 sm:py-32">
-			<div className="mx-auto max-w-7xl px-6 lg:px-8 space-y-8 md:space-y-16">
-				<div className="mx-auto max-w-2xl lg:mx-0">
+		<div className="relative">
+			<Navigation />
+			<div className="px-6 pt-16 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
+				<div className="max-w-2xl mx-auto lg:mx-0">
 					<h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
 						Projects
 					</h2>
-					<p className="text-zinc-400 mt-4">
+					<p className="mt-4 text-zinc-400">
 						Some of the projects are from work and some are on my own time.
 					</p>
 				</div>
-				<div className="w-full  h-px bg-zinc-800" />
+				<div className="w-full h-px bg-zinc-800" />
 
-				<div className="mx-auto grid  grid-cols-1 gap-8  lg:grid-cols-2  ">
-					<article className="mx-auto w-full max-w-2xl lg:mx-0 lg:max-w-lg">
-						<div className="text-zinc-100 text-xs">
+				<div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
+					<article className="w-full max-w-2xl mx-auto lg:mx-0 lg:max-w-lg">
+						<div className="text-xs text-zinc-100">
 							{featured.date ? (
 								<time dateTime={new Date(featured.date).toISOString()}>
-									{featured.date}
+									{new Date(featured.date).toDateString()}
 								</time>
 							) : (
 								<span>SOON</span>
@@ -188,11 +49,11 @@ export default function ProjectsPage() {
 						</div>
 						<h2
 							id="featured-post"
-							className="mt-4 text-3xl font-bold tracking-tight text-zinc-100 group-hover:text-white   sm:text-4xl"
+							className="mt-4 text-3xl font-bold tracking-tight text-zinc-100 group-hover:text-white sm:text-4xl font-display"
 						>
 							{featured.title}
 						</h2>
-						<p className="mt-4 text-lg leading-8 text-zinc-400 duration-150 group-hover:text-zinc-300">
+						<p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
 							{featured.description}
 						</p>
 						<div className="mt-4">
@@ -204,15 +65,15 @@ export default function ProjectsPage() {
 							</Link>
 						</div>
 					</article>
-					<div className="mx-auto w-full max-w-2xl flex flex-col gap-8 border-t border-gray-900/10 pt-12 sm:pt-16 lg:mx-0 lg:max-w-none lg:border-t-0 lg:pt-0">
+					<div className="flex flex-col w-full max-w-2xl gap-8 pt-12 mx-auto border-t border-gray-900/10 sm:pt-16 lg:mx-0 lg:max-w-none lg:border-t-0 lg:pt-0">
 						{[top2, top3].map((project) => (
 							<Card key={project.slug} project={project} />
 						))}
 					</div>
 				</div>
-				<div className="w-full hidden md:block  h-px bg-zinc-800" />
+				<div className="hidden w-full h-px md:block bg-zinc-800" />
 
-				<div className="mx-auto grid max-w-2xl grid-cols-1 gap-4 lg:mx-0 lg:max-w-none md:grid-cols-2 lg:grid-cols-3">
+				<div className="grid max-w-2xl grid-cols-1 gap-4 mx-auto lg:mx-0 lg:max-w-none md:grid-cols-2 lg:grid-cols-3">
 					{sorted.map((project) => (
 						<Card key={project.slug} project={project} />
 					))}
@@ -235,21 +96,21 @@ const Card: React.FC<{ project: Project; border?: boolean }> = ({
 					: ""
 			} `}
 		>
-			<div className="text-zinc-100 text-xs">
+			<div className="text-xs text-zinc-100">
 				{project.date ? (
 					<time dateTime={new Date(project.date).toISOString()}>
-						{project.date}
+						{new Date(project.date).toDateString()}
 					</time>
 				) : (
 					<span>SOON</span>
 				)}
 			</div>
-			<div className=" relative duration-150">
-				<h3 className="mt-3 text-lg font-semibold leading-6 text-zinc-100 group-hover:text-white ">
+			<div className="relative duration-150 ">
+				<h3 className="mt-3 text-lg font-semibold leading-6 text-zinc-100 group-hover:text-white font-display ">
 					<span className="absolute inset-0" />
 					{project.title}
 				</h3>
-				<p className="mt-5 text-sm leading-6 text-zinc-400 line-clamp-3 duration-150 group-hover:text-zinc-300">
+				<p className="mt-5 text-sm leading-6 duration-150 text-zinc-400 line-clamp-3 group-hover:text-zinc-300">
 					{project.description}
 				</p>
 			</div>
