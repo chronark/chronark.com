@@ -23,7 +23,6 @@ specifiers:
   rehype-pretty-code: ^0.9.4
   rehype-slug: ^5.1.0
   remark-gfm: ^3.0.1
-  rome: ^11.0.0
   tailwindcss: ^3.2.7
   tailwindcss-debug-screens: ^2.2.1
   typescript: 4.9.5
@@ -54,7 +53,6 @@ devDependencies:
   autoprefixer: 10.4.13_postcss@8.4.21
   postcss: 8.4.21
   postcss-nesting: 11.2.1_postcss@8.4.21
-  rome: 11.0.0
   tailwindcss: 3.2.7_postcss@8.4.21
   tailwindcss-debug-screens: 2.2.1_tailwindcss@3.2.7
 
@@ -911,54 +909,6 @@ packages:
   /@protobufjs/utf8/1.1.0:
     resolution: {integrity: sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==}
     dev: false
-
-  /@rometools/cli-darwin-arm64/11.0.0:
-    resolution: {integrity: sha512-F3vkdY+s3FLIEnAjSbyHTuIPB88cLpccimW4ecid5I7S6GzGG3iUJI4xT00JhH73K4P/qW20/9r+kH1T9Du8Xg==}
-    cpu: [arm64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@rometools/cli-darwin-x64/11.0.0:
-    resolution: {integrity: sha512-X6jhtS6Iml4GOzgNtnLwIp/KXXhSdqeVyfv69m/AHnIzx3gQAjPZ7BPnJLvTCbhe4SKHL+uTZYFSCJpkUUKE6w==}
-    cpu: [x64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@rometools/cli-linux-arm64/11.0.0:
-    resolution: {integrity: sha512-dktTJJlTpmycBZ2TwhJBcAO8ztK8DdevdyZnFFxdYRvtmJgTjIsC2UFayf/SbKew8B8q1IhI0it+D6ihAeIpeg==}
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@rometools/cli-linux-x64/11.0.0:
-    resolution: {integrity: sha512-WVcnXPNdWGUWo0p4NU8YzuthjYR7q+b4vRcjdxtP1DlpphZmSsoC/RSE85nEqRAz8hChcKUansVzOPM8BSsuGA==}
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@rometools/cli-win32-arm64/11.0.0:
-    resolution: {integrity: sha512-tPj6RThQzS7Q45jqQll7NlTYvNcsg/BEP3LYiiazqSh9FAFnMkrV6ewUcMPKWyAfiyLs7jlz4rRvdNRUSygzfQ==}
-    cpu: [arm64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@rometools/cli-win32-x64/11.0.0:
-    resolution: {integrity: sha512-bmBai8WHxYjsGk1+je7ZTfCUCWq30WJI3pQM8pzTA674lfGTZ9ymJoZwTaIMSO4rL5V9mlO6uLunsBKso9VqOg==}
-    cpu: [x64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
 
   /@swc/helpers/0.4.14:
     resolution: {integrity: sha512-4C7nX/dvpzB7za4Ql9K81xK3HPxCpHMgwTZVyf+9JQ6VUbn9jjZVN7/Nkdz/Ugzs2CSjqnL/UPXroiVBVHUWUw==}
@@ -2998,20 +2948,6 @@ packages:
   /reusify/1.0.4:
     resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
-
-  /rome/11.0.0:
-    resolution: {integrity: sha512-rRo6JOwpMLc3OkeTDRXkrmrDqnxDvZ75GS4f0jLDBNmRgDXWbu0F8eVnJoRn+VbK2AE7vWvhVOMBjnWowcopkQ==}
-    engines: {node: '>=14.*'}
-    hasBin: true
-    requiresBuild: true
-    optionalDependencies:
-      '@rometools/cli-darwin-arm64': 11.0.0
-      '@rometools/cli-darwin-x64': 11.0.0
-      '@rometools/cli-linux-arm64': 11.0.0
-      '@rometools/cli-linux-x64': 11.0.0
-      '@rometools/cli-win32-arm64': 11.0.0
-      '@rometools/cli-win32-x64': 11.0.0
-    dev: true
 
   /run-parallel/1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
