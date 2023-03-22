@@ -77,9 +77,6 @@ export const Navigation: React.FC<Props> = ({ project }) => {
 							<h1 className="text-4xl font-bold uppercase text-zinc-100 sm:text-center sm:text-6xl font-display">
 								{project.title}
 							</h1>
-							<p className="mt-6 text-lg leading-8 text-zinc-400 sm:text-center">
-								{project.description}{" "}
-							</p>
 						</div>
 					</div>
 				</div>

@@ -47,7 +47,7 @@ const inter = Inter({
 const grotesk = Hanken_Grotesk({
 	subsets: ["latin"],
 	variable: "--font-grotesk",
-	fallback: ["sans-serif"]
+	fallback: ["sans-serif"],
 });
 
 export default function RootLayout({

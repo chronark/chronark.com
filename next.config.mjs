@@ -6,7 +6,7 @@ const nextConfig = {
 	experimental: {
 		appDir: true,
 		mdxRs: true,
-		runtime: "edge"
+		runtime: "edge",
 	},
 	images: {
 		domains: ["pbs.twimg.com"],
