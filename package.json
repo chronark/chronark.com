@@ -11,13 +11,13 @@
   "dependencies": {
     "@next/font": "^13.2.1",
     "@next/mdx": "^13.2.1",
-    "@types/node": "18.15.0",
+    "@types/node": "18.15.5",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "@vercel/analytics": "^0.1.10",
     "contentlayer": "^0.3.0",
     "framer-motion": "^10.8.5",
-    "lucide-react": "^0.125.0",
+    "lucide-react": "^0.127.0",
     "markdown-wasm": "^1.2.0",
     "next": "13.2.4",
     "next-contentlayer": "^0.3.0",
@@ -27,10 +27,10 @@
     "rehype-pretty-code": "^0.9.4",
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
-    "typescript": "4.9.5"
+    "typescript": "5.0.2"
   },
   "devDependencies": {
-    "@opentelemetry/api": "^1.1.0",
+    "@opentelemetry/api": "^1.4.1",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "^10.4.13",

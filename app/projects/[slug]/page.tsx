@@ -3,7 +3,6 @@ import { allProjects } from "contentlayer/generated";
 import { Mdx } from "@/app/components/mdx";
 import { Navigation } from "@/app/components/article-nav";
 import "./mdx.css";
-import Link from "next/link";
 
 interface PostPageProps {
 	params: {
