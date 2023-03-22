@@ -32,7 +32,7 @@ export default async function PostPage({ params }: PostPageProps) {
 			<Navigation project={project} />
 
 			<main className=" bg-zinc-50">
-				<article className="px-4 py-12 mx-auto prose text-zinc-600 ">
+				<article className="px-4 py-12 mx-auto prose sm:prose-sm md:prose-md lg:prose-lg text-zinc-600 ">
 					<Mdx code={project.body.code} />
 				</article>
 			</main>
