@@ -8,47 +8,15 @@ published: true
   
 ---
 
+Upstash is a cloud-based service provider that offers a Redis-compatible service. In addition to that, we have also created an npm package called `@upstash/redis`. This package provides a strongly typed Redis client that uses HTTP instead of TCP to communicate with the database, making it perfect for serverless and edge runtimes.
 
-`@upstash/redis` is an HTTP/REST based Redis client for typescript, built on top
-of [Upstash REST API](https://docs.upstash.com/features/restapi).
+Redis is a popular open-source, in-memory data structure store that can be used as a database, cache, and message broker. It is commonly used for web applications that require fast data access and manipulation. Redis clients communicate with Redis servers using the Redis protocol over TCP/IP.
 
-It is the only connectionless (HTTP based) Redis client and designed for:
+However, in some cases, TCP is not available. For example, edge functions run on cloud platforms, which often block TCP connections for various reasons. This is where `@upstash/redis` comes in handy. Instead of using TCP, it uses HTTP to communicate with the servers.
 
-- Serverless functions (AWS Lambda ...)
-- Cloudflare Workers (see
-  [the example](https://github.com/upstash/upstash-redis/tree/main/examples/cloudflare-workers))
-- Fastly Compute@Edge (see
-  [the example](https://github.com/upstash/upstash-redis/tree/main/examples/fastly))
-- Next.js, Jamstack ...
-- Client side web/mobile applications
-- WebAssembly
-- and other environments where HTTP is preferred over TCP.
+The package is designed to be easy to use and provides a simple API for Redis commands. It also includes support for Redis transactions and Lua scripting. It is written in TypeScript, which provides static typing and better code completion in modern editors.
 
-See
-[the list of APIs](https://docs.upstash.com/features/restapi#rest---redis-api-compatibility)
-supported.
-
-## Quick Start
-
-### Install
-
-#### Node.js
-
-```bash
-npm install @upstash/redis
-```
-
-#### Deno
-
-```ts
-import { Redis } from "https://deno.land/x/upstash_redis/mod.ts";
-```
-
-### Create database
-
-Create a new redis database on [upstash](https://console.upstash.com/)
-
-## Basic Usage:
+One of the main benefits of using `@upstash/redis` is that it is strongly typed. This means that you get better type checking and error handling in your code. Additionally, the package is designed to be lightweight and optimized for performance. This makes it an excellent choice for applications that require fast data access and manipulation.
 
 ```ts
 import { Redis } from "@upstash/redis"
@@ -73,15 +41,5 @@ console.log(data)
 // list
 await redis.lpush('elements', 'magnesium')
 data = await redis.lrange('elements', 0, 100 )
-console.log(data)
-
-// hash
-await redis.hset('people', {name: 'joe'})
-data = await redis.hget('people', 'name' )
-console.log(data)
-
-// sets
-await redis.sadd('animals', 'cat')
-data  = await redis.spop('animals', 1)
 console.log(data)
 ```

@@ -1,8 +1,7 @@
 ---
 title: Upstash Ratelimit Analytics
 description: Near realtime analytics for your ratelimits. Integrated into the @upstash/ratelimit library.
-repository: upstash/ratelimit
-date: "2023-03-01"
+repository: upstash/ratelimit"
 website: https://console.upstash.com/ratelimit
 published: true
   
