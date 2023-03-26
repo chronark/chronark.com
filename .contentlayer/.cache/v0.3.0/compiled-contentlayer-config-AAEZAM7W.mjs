@@ -19,6 +19,9 @@ var Project = defineDocumentType(() => ({
 	filePathPattern: "./projects/**/*.mdx",
 	contentType: "mdx",
 	fields: {
+		published: {
+			type: "boolean",
+		},
 		title: {
 			type: "string",
 			required: true,
@@ -91,4 +94,4 @@ var contentlayer_config_default = makeSource({
 	},
 });
 export { Page, Project, contentlayer_config_default as default };
-//# sourceMappingURL=compiled-contentlayer-config-KFUTZ636.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-AAEZAM7W.mjs.map

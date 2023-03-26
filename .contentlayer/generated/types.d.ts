@@ -31,6 +31,7 @@ export type Project = {
 	_id: string;
 	_raw: Local.RawDocumentData;
 	type: "Project";
+	published?: boolean | undefined;
 	title: string;
 	description: string;
 	date?: IsoDateTimeString | undefined;

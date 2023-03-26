@@ -1,44 +1,47 @@
-import Image from "next/image";
-import Link from "next/link";
 import "../global.css";
 import { Inter, Hanken_Grotesk } from "@next/font/google";
-// import font from "@next/font/local";
-// const pangea = font({
-// 	src: [
-// 		{
-// 			path: "../public/fonts/PangeaAfrikanTrial-Light.woff2",
-// 			weight: "100",
-// 			style: "normal",
-// 		},
-// 		{
-// 			path: "../public/fonts/PangeaAfrikanTrial-Regular.woff2",
-// 			weight: "300",
-// 			style: "normal",
-// 		},
-// 		{
-// 			path: "../public/fonts/PangeaAfrikanTrial-Medium.woff2",
-// 			weight: "500",
-// 			style: "normal",
-// 		},
-// 		{
-// 			path: "../public/fonts/PangeaAfrikanTrial-SemiBold.woff2",
-// 			weight: "700",
-// 			style: "normal",
-// 		},
-// 		{
-// 			path: "../public/fonts/PangeaAfrikanTrial-Bold.woff2",
-// 			weight: "900",
-// 			style: "normal",
-// 		},
-// 	],
-// 	variable: "--font-pangea",
-// });
+import { Metadata } from "next";
 
-export const metadata = {
-	title: "chronark.com",
-	description: "The personal website of chronark",
+export const metadata: Metadata = {
+	title: {
+		default: "chronark.com",
+		template: "%s | chronark.com",
+	},
+	description: "software engineer at Upstash and founder of planetfall.io",
+	openGraph: {
+		title: "chronark.com",
+		description: "software engineer at Upstash and founder of planetfall.io",
+		url: "https://chronark.com",
+		siteName: "chronark.com",
+		images: [
+			{
+				url: "https://chronark.com/og.png",
+				width: 1920,
+				height: 1080,
+			},
+		],
+		locale: "en-US",
+		type: "website",
+	},
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			"max-video-preview": -1,
+			"max-image-preview": "large",
+			"max-snippet": -1,
+		},
+	},
+	twitter: {
+		title: "Chronark",
+		card: "summary_large_image",
+	},
+	icons: {
+		shortcut: "/favicon.png",
+	},
 };
-
 const inter = Inter({
 	subsets: ["latin"],
 	variable: "--font-inter",

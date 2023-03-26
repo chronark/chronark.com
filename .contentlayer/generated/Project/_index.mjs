@@ -42,6 +42,9 @@ import projects__upstashReactUiMdx from "./projects__upstash-react-ui.mdx.json" 
 import projects__upstashRedisMdx from "./projects__upstash-redis.mdx.json" assert {
 	type: "json",
 };
+import projects__upstashWebAnalyticsMdx from "./projects__upstash-web-analytics.mdx.json" assert {
+	type: "json",
+};
 
 export const allProjects = [
 	projects__accessMdx,
@@ -58,4 +61,5 @@ export const allProjects = [
 	projects__upstashRatelimitMdx,
 	projects__upstashReactUiMdx,
 	projects__upstashRedisMdx,
+	projects__upstashWebAnalyticsMdx,
 ];

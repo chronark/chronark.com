@@ -1,11 +1,10 @@
+// contentlayer.config.js
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-
-/** @type {import('contentlayer/source-files').ComputedFields} */
-const computedFields = {
+var computedFields = {
 	path: {
 		type: "string",
 		resolve: (doc) => `/${doc._raw.flattenedPath}`,
@@ -15,12 +14,10 @@ const computedFields = {
 		resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
 	},
 };
-
-export const Project = defineDocumentType(() => ({
+var Project = defineDocumentType(() => ({
 	name: "Project",
 	filePathPattern: "./projects/**/*.mdx",
 	contentType: "mdx",
-
 	fields: {
 		published: {
 			type: "boolean",
@@ -45,8 +42,7 @@ export const Project = defineDocumentType(() => ({
 	},
 	computedFields,
 }));
-
-export const Page = defineDocumentType(() => ({
+var Page = defineDocumentType(() => ({
 	name: "Page",
 	filePathPattern: "pages/**/*.mdx",
 	contentType: "mdx",
@@ -61,8 +57,7 @@ export const Page = defineDocumentType(() => ({
 	},
 	computedFields,
 }));
-
-export default makeSource({
+var contentlayer_config_default = makeSource({
 	contentDirPath: "./content",
 	documentTypes: [Page, Project],
 	mdx: {
@@ -74,8 +69,6 @@ export default makeSource({
 				{
 					theme: "github-dark",
 					onVisitLine(node) {
-						// Prevent lines from collapsing in `display: grid` mode, and allow empty
-						// lines to be copy/pasted
 						if (node.children.length === 0) {
 							node.children = [{ type: "text", value: " " }];
 						}
@@ -100,3 +93,5 @@ export default makeSource({
 		],
 	},
 });
+export { Page, Project, contentlayer_config_default as default };
+//# sourceMappingURL=compiled-contentlayer-config-RHAHPX7F.mjs.map
