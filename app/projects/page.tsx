@@ -75,7 +75,7 @@ export default function ProjectsPage() {
 						</Link>
 					</Card>
 
-					<div className="flex flex-col w-full max-w-2xl gap-8 pt-12 mx-auto border-t border-gray-900/10 sm:pt-16 lg:mx-0 lg:max-w-none lg:border-t-0 lg:pt-0">
+					<div className="flex flex-col w-full gap-8  mx-auto border-t border-gray-900/10  lg:mx-0  lg:border-t-0 ">
 						{[top2, top3].map((project) => (
 							<Card key={project.slug}>
 								<Article project={project} />
@@ -85,7 +85,7 @@ export default function ProjectsPage() {
 				</div>
 				<div className="hidden w-full h-px md:block bg-zinc-800" />
 
-				<div className="grid max-w-2xl grid-cols-1 gap-4 mx-auto lg:mx-0 lg:max-w-none md:grid-cols-2 lg:grid-cols-3">
+				<div className="grid  grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">
 					<div className="grid grid-cols-1 gap-4">
 						{sorted
 							.filter((_, i) => i % 3 === 0)
