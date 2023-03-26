@@ -3,6 +3,7 @@ import { allProjects } from "contentlayer/generated";
 import { Mdx } from "@/app/components/mdx";
 import { Header } from "./header";
 import "./mdx.css";
+import { ReportView } from "./view";
 
 type Props = {
 	params: {
@@ -29,6 +30,7 @@ export default async function PostPage({ params }: Props) {
 	return (
 		<div className="min-h-screen">
 			<Header project={project} />
+			<ReportView slug={project.slug} />
 
 			<main className="bg-zinc-50">
 				<article className="px-4 py-12 mx-auto prose prose-zinc">
