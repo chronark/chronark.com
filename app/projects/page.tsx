@@ -65,7 +65,7 @@ export default function ProjectsPage() {
 								</p>
 								<div className="absolute bottom-4 md:bottom-8">
 									<Link
-										className="text-zinc-200 hover:text-zinc-50"
+										className="text-zinc-200 hover:text-zinc-50 hidden lg:block"
 										href={`/projects/${featured.slug}`}
 									>
 										Read more <span aria-hidden="true">&rarr;</span>
