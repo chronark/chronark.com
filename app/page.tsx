@@ -34,6 +34,7 @@ export default function Home() {
 					Hi, my name is Andreas, I'm building serverless and open source
 					solutions at{" "}
 					<Link
+						target="_blank"
 						href="https://upstash.com"
 						className="underline duration-500 hover:text-zinc-300"
 					>
@@ -43,6 +44,7 @@ export default function Home() {
 					<br />
 					and working on{" "}
 					<Link
+						target="_blank"
 						href="https://planetfall.io"
 						className="underline duration-500 hover:text-zinc-300"
 					>
