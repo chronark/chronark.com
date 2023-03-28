@@ -20,7 +20,7 @@ module.exports = {
 			},
 			fontFamily: {
 				sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
-				display: ["var(--font-grotesk)"],
+				display: ["var(--font-calsans)"],
 			},
 			backgroundImage: {
 				"gradient-radial":
@@ -88,8 +88,6 @@ module.exports = {
 
 					"100%": {
 						"line-height": "100%",
-						"letter-spacing": "0.125em",
-
 						opacity: "100%",
 					},
 				},

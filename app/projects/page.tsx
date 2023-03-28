@@ -56,7 +56,7 @@ export default function ProjectsPage() {
 								</div>
 								<h2
 									id="featured-post"
-									className="mt-4 text-3xl font-bold tracking-tight text-zinc-100 group-hover:text-white sm:text-4xl font-display"
+									className="mt-4 text-3xl font-bold  text-zinc-100 group-hover:text-white sm:text-4xl font-display"
 								>
 									{featured.title}
 								</h2>

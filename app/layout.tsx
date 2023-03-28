@@ -1,5 +1,6 @@
 import "../global.css";
-import { Inter, Hanken_Grotesk } from "@next/font/google";
+import { Inter } from "@next/font/google";
+import LocalFont from "@next/font/local";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -48,10 +49,9 @@ const inter = Inter({
 	variable: "--font-inter",
 });
 
-const grotesk = Hanken_Grotesk({
-	subsets: ["latin"],
-	variable: "--font-grotesk",
-	fallback: ["sans-serif"],
+const calSans = LocalFont({
+	src: "../public/fonts/CalSans-SemiBold.ttf",
+	variable: "--font-calsans",
 });
 
 export default function RootLayout({
@@ -60,7 +60,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className={[inter.variable, grotesk.variable].join(" ")}>
+		<html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
 			<body
 				className={`bg-black ${
 					process.env.NODE_ENV === "development" ? "debug-screens" : undefined
