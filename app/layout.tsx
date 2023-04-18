@@ -6,7 +6,7 @@ import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
 	title: {
-		default: "chronark.com",
+		default: "adamhughes.dev",
 		template: "%s | chronark.com",
 	},
 	description: "Software engineer at upstash.com and founder of planetfall.io",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 	},
 	icons: {
-		shortcut: "/favicon.png",
+		shortcut: "/favicon.ico",
 	},
 };
 const inter = Inter({
