@@ -1,7 +1,7 @@
-import projects from '../../data/projects'
+import sortedProjects from '../../data/projects'
 
 type Props = {
-  project: typeof projects[number];
+  project: typeof sortedProjects[number];
 };
 
 export const Article: React.FC<Props> = ({ project }) => {
@@ -29,13 +29,24 @@ export const Article: React.FC<Props> = ({ project }) => {
       <p className="z-20 mt-2 text-sm duration-1000 text-zinc-300 group-hover:text-zinc-200">
         Technologies: {project.technologies}
       </p>
-      <div className="mt-4">
-        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-zinc-200">GitHub Repo</a>
+      <div className="mt-4 flex justify-between items-center">
+        <a
+          href={project.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-zinc-200 text-zinc-700 py-1 px-3 rounded hover:bg-zinc-300 transition duration-200"
+        >
+          GitHub Repo
+        </a>
         {project.deployedUrl && (
-          <>
-            {' | '}
-            <a href={project.deployedUrl} target="_blank" rel="noopener noreferrer" className="text-zinc-200">Live Demo</a>
-          </>
+          <a
+            href={project.deployedUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-zinc-200 text-zinc-700 py-1 px-3 rounded hover:bg-zinc-300 transition duration-200"
+          >
+            Live Demo
+          </a>
         )}
       </div>
     </article>

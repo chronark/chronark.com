@@ -3,10 +3,10 @@ import React from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { Article } from "./article";
-import projects from '../../data/projects'
+import sortedProjects from '../../data/projects'
 
 export default function ProjectsPage() {
-	const sorted = projects.reverse()
+	const sorted = sortedProjects
 
 	return (
 		<div className="relative pb-16">
