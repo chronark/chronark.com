@@ -5,8 +5,8 @@ const projects = [
         date: "Aug 31, 2022",
         technologies: "HTML, CSS, JavaScript",
         description: "In this paired project, we finsihed a website that allows users to create their own romance novel covers.",
-        githubUrl: "",
-        deployedUrl: "https://github.com/ajh0050/romcom",
+        githubUrl: "https://github.com/ajh0050/romcom",
+        deployedUrl: "",
     },
     {
         id: 2,
@@ -41,8 +41,8 @@ const projects = [
         date: "Feb 18, 2023",
         technologies: "Express, Knex, Postgresql, pgAdmin, Fly.io, Heroku",
         description: "In this group project, we created a backend API for a music streaming service.",
-        githubUrl: "",
-        deployedUrl: "https://github.com/nkinsaul/Tune-Spoon-api",
+        githubUrl: "https://github.com/nkinsaul/Tune-Spoon-api",
+        deployedUrl: "",
     },
     {
         id: 6,
