@@ -6,16 +6,12 @@ import { Article } from "./article";
 import projects from '../../data/projects'
 
 export default function ProjectsPage() {
-	const sorted = projects
+	const sorted = projects.reverse()
 
 	return (
 		<div className="relative pb-16">
 			<Navigation />
 			<div className="px-6 pt-16 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
-
-
-				
-
 				<div className="hidden w-full h-px md:block bg-zinc-800" /> 
 
 				<div className="grid  grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">

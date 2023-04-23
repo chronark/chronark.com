@@ -1,11 +1,10 @@
-import { Eye } from "lucide-react";
 import projects from '../../data/projects'
 
 type Props = {
   project: typeof projects[number];
 };
 
-export const Article: React.FC<Props> = ({ project}) => {
+export const Article: React.FC<Props> = ({ project }) => {
   return (
     <article className="p-4 md:p-8">
       <div className="flex justify-between gap-2 items-center">
@@ -20,7 +19,6 @@ export const Article: React.FC<Props> = ({ project}) => {
             <span>SOON</span>
           )}
         </span>
-
       </div>
       <h2 className="z-20 text-xl font-medium duration-1000 lg:text-3xl text-zinc-200 group-hover:text-white font-display">
         {project.title}
@@ -28,8 +26,11 @@ export const Article: React.FC<Props> = ({ project}) => {
       <p className="z-20 mt-4 text-sm duration-1000 text-zinc-400 group-hover:text-zinc-200">
         {project.description}
       </p>
-      <div className="mt-4 ">
-        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-zinc-200">GitHub</a>
+      <p className="z-20 mt-2 text-sm duration-1000 text-zinc-300 group-hover:text-zinc-200">
+        Technologies: {project.technologies}
+      </p>
+      <div className="mt-4">
+        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-zinc-200">GitHub Repo</a>
         {project.deployedUrl && (
           <>
             {' | '}
