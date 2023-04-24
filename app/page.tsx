@@ -4,6 +4,7 @@ import React from "react";
 const navigation = [
 	{ name: "Projects", href: "/projects" },
 	{ name: "Contact", href: "/contact" },
+	{ name: "Resume", href: "/resume" },
 ];
 
 export default function Home() {
