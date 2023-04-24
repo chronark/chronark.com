@@ -4,7 +4,7 @@ const projects = [
         title: "RomCom",
         date: "Aug 31, 2022",
         technologies: "HTML, CSS, JavaScript",
-        description: "In this paired project, we finsihed a website that allows users to create their own romance novel covers.",
+        description: "In this paired project, we finished a website that allows users to create their own romance novel covers.",
         githubUrl: "https://github.com/ajh0050/romcom",
         deployedUrl: "",
     },
