@@ -9,18 +9,13 @@ export const metadata: Metadata = {
 	description: "Hi I'm Adam and I'm a software engineer specializing in React Front Ends. ",
 	openGraph: {
 		title: "Adam Hughes",
-		description:
-			"Hi I'm Adam and I'm a software engineer specializing in React Front Ends. ",
-		url: "https://chronark.com",
+		description: "Hi I'm Adam and I'm a software engineer specializing in React Front Ends.",
+		url: "https://www.adamhughes.dev/",
 		siteName: "adamhughes.dev",
-		images: [
-			{
-				url: "https://adamhughes.dev/coding.webp"
-			},
-		],
+		images: '/coding-website.jpg',
 		locale: "en-US",
 		type: "website",
-	},
+	  },
 	robots: {
 		index: true,
 		follow: true,

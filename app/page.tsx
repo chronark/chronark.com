@@ -6,7 +6,6 @@ const navigation = [
 	{ name: "Contact", href: "/contact" },
 ];
 
-
 export default function Home() {
 
 	return (
@@ -32,11 +31,11 @@ export default function Home() {
 
 			<div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 			<div className="my-16 text-center animate-fade-in">
-				<h2 className="text-xs md:text-sm lg:text-md xl:text-md 2xl:text-md  text-zinc-500 ">
-					I'm a front-end software developer. <br/>
+				<h2 className="text-xs md:text-sm lg:text-lg xl:text-lg 2xl:text-lg  text-zinc-500 ">
+					I'm a front-end software developer. <br />
 					I specialize in modern web frameworks like React/Next. <br />
-					My background is in Finance, Marketing, Operations, and SEO. <br/>
-					I'm a creative problem solver who enjoys collaborating with team members. <br/>
+					My background is in Finance, Marketing, Operations, and SEO. <br />
+					I'm a creative problem solver who enjoys collaborating with team members. <br />
 				</h2>
 			</div>
 		</div>
