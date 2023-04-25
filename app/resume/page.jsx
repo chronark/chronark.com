@@ -1,8 +1,7 @@
 "use client";
 import { Navigation } from "../components/nav";
-import React, { useEffect } from 'react';
 
-export default function Example() {
+export default function Resume() {
     const pdfURL = 'https://drive.google.com/uc?id=1yNS4kMzA_4n1-EhRksbgRJsoQQWmEFSc'
 
     return (
