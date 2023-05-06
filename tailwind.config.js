@@ -18,19 +18,19 @@ module.exports = {
 						},
 						'code::after': {
 							content: '""'
-						}
-					}
+						},
+					},
 				},
 				quoteless: {
 					css: {
 						"blockquote p:first-of-type::before": { content: "none" },
 						"blockquote p:first-of-type::after": { content: "none" },
 					},
-				}
+				},
 			},
 			fontFamily: {
-				sans: ["var(--font-instrument-sans)"],
-				mono: ["var(--font-fragment-mono)"],
+				sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
+				display: ["var(--font-calsans)"],
 			},
 			backgroundImage: {
 				"gradient-radial":
