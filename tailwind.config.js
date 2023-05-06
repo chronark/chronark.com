@@ -11,16 +11,26 @@ module.exports = {
 	theme: {
 		extend: {
 			typography: {
+				DEFAULT: {
+					css: {
+						'code::before': {
+							content: '""'
+						},
+						'code::after': {
+							content: '""'
+						}
+					}
+				},
 				quoteless: {
 					css: {
 						"blockquote p:first-of-type::before": { content: "none" },
 						"blockquote p:first-of-type::after": { content: "none" },
 					},
-				},
+				}
 			},
 			fontFamily: {
-				sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
-				display: ["var(--font-calsans)"],
+				sans: ["var(--font-instrument-sans)"],
+				mono: ["var(--font-fragment-mono)"],
 			},
 			backgroundImage: {
 				"gradient-radial":
@@ -92,7 +102,7 @@ module.exports = {
 					},
 				},
 			},
-		},
+		}
 	},
 	plugins: [
 		require("@tailwindcss/typography"),
