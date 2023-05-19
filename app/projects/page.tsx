@@ -87,12 +87,9 @@ export default async function ProjectsPage() {
 									{featured.description}
 								</p>
 								<div className="absolute bottom-4 md:bottom-8">
-									<Link
-										className="hidden text-zinc-200 hover:text-zinc-50 lg:block"
-										href={`/projects/${featured.slug}`}
-									>
+									<p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
 										Read more <span aria-hidden="true">&rarr;</span>
-									</Link>
+									</p>
 								</div>
 							</article>
 						</Link>
