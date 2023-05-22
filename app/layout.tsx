@@ -6,22 +6,22 @@ import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
 	title: {
-		default: "chronark.com",
-		template: "%s | chronark.com",
+		default: "carvido.net",
+		template: "%s | carvido.net",
 	},
-	description: "Software engineer at upstash.com and founder of planetfall.io",
+	description: "We are a Cloud agency that delivers Radical Services for companies willing to accelerate their Cloud transformation",
 	openGraph: {
-		title: "chronark.com",
+		title: "carvido.net",
 		description:
-			"Software engineer at upstash.com and founder of planetfall.io",
-		url: "https://chronark.com",
-		siteName: "chronark.com",
+			"We are a Cloud agency that delivers Radical Services for companies willing to accelerate their Cloud transformation",
+		url: "https://carvido.net",
+		siteName: "carvido.net",
 		images: [
-			{
-				url: "https://chronark.com/og.png",
-				width: 1920,
-				height: 1080,
-			},
+			// {
+			// 	url: "https://chronark.com/og.png",
+			// 	width: 1920,
+			// 	height: 1080,
+			// },
 		],
 		locale: "en-US",
 		type: "website",
@@ -37,10 +37,10 @@ export const metadata: Metadata = {
 			"max-snippet": -1,
 		},
 	},
-	twitter: {
-		title: "Chronark",
-		card: "summary_large_image",
-	},
+	// twitter: {
+	// 	title: "Chronark",
+	// 	card: "summary_large_image",
+	// },
 	icons: {
 		shortcut: "/favicon.png",
 	},
