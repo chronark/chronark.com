@@ -1,0 +1,3 @@
+Contact: mailto:security@tangerine.lgbt
+Preferred-Languages: en, de
+Canonical: https://tangerine.pink/.well-known/security.txt
