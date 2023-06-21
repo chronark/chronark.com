@@ -29,7 +29,7 @@ module.exports = {
 				},
 			},
 			fontFamily: {
-				sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
+				sans: ["var(--font-worksans)", ...defaultTheme.fontFamily.sans],
 				display: ["var(--font-calsans)"],
 			},
 			backgroundImage: {
@@ -97,7 +97,7 @@ module.exports = {
 					},
 
 					"100%": {
-						"line-height": "100%",
+						"line-height": "125%",
 						opacity: "100%",
 					},
 				},
