@@ -49,10 +49,10 @@ export default function Home() {
 					and working on{" "}
 					<Link
 						target="_blank"
-						href="https://planetfall.io"
+						href="https://unkey.dev"
 						className="underline duration-500 hover:text-zinc-300"
 					>
-						planetfall.io
+						unkey.dev
 					</Link>{" "}
 					at night.
 				</h2>
