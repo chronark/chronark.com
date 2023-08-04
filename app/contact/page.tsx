@@ -1,28 +1,47 @@
 "use client";
-import { Github, Mail, Twitter } from "lucide-react";
+import { Book, BookDownIcon, Github, GithubIcon, Instagram, Linkedin, Mail, Music2, Twitter } from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 
 const socials = [
 	{
+		icon: <Linkedin size={20} />,
+		href: "https://www.linkedin.com/in/dominick-j-monaco/",
+		label: "LinkedIn",
+		handle: "dominick-j-monaco",
+	},
+	{
 		icon: <Twitter size={20} />,
-		href: "https://twitter.com/chronark_",
+		href: "https://twitter.com/JackMonaco1",
 		label: "Twitter",
-		handle: "@chronark_",
+		handle: "@JackMonaco1",
 	},
 	{
-		icon: <Mail size={20} />,
-		href: "mailto:dev@chronark.com",
-		label: "Email",
-		handle: "dev@chronark.com",
+		icon: <Book size={20} />,
+		href: "https://dominickjmonaco.hashnode.dev/",
+		label: "Blog",
+		handle: "dominickjmonaco",
 	},
 	{
-		icon: <Github size={20} />,
-		href: "https://github.com/chronark",
+		icon: <GithubIcon size={20} />,
+		href: "https://github.com/HoldUpFjord",
 		label: "Github",
-		handle: "chronark",
+		handle: "HoldUpFjord",
 	},
+	{
+		icon: <Instagram size={20} />,
+		href: "https://www.threads.net/@tpo_hikes",
+		label: "Threads",
+		handle: "tpo_hikes",
+	},
+	{
+		icon: <Music2 size={20} />,
+		href: "https://www.tiktok.com/@dominick.j.monaco",
+		label: "TikTok",
+		handle: "dominick.j.monaco",
+	},
+	
 ];
 
 export default function Example() {
