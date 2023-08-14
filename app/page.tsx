@@ -36,7 +36,7 @@ export default function Home() {
 			<div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 			<div className="my-16 text-center animate-fade-in">
 				<Terminal
-					text="Hii, my name is Tom, I am a PhD student at the University of Newcastle focused on bringing robotics to everyday life."
+					text="Hii, my name is Tom, I'm a PhD student focused on bringing robots to everyday life."
 				/>
 			</div>
 		</div>

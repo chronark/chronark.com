@@ -32,13 +32,13 @@ export default function Terminal({ text }: TerminalProps) {
   }, [text]);
 
   return (
-    <div className="bg-black text-white text-sm p-6 rounded-lg font-mono">
-      <div>
-        <span className="text-zinc-500">tom</span>
-        <span>@</span>
-        <span className="text-zinc-500">obrien</span>:~$ <span className="typing">{typedText}</span>
-        <span className="cursor-blink">|</span>
-      </div>
+    <div className="text-white text-sm p-4 rounded-lg font-mono overflow-auto">
+    <div className="whitespace-pre-line overflow-wrap break-all">
+      <span className="text-zinc-500">tom</span>
+      <span>@</span>
+      <span className="text-zinc-500">obrien</span>:~$ <span className="typing">{typedText}</span>
+      <span className="cursor-blink">|</span>
     </div>
-  );
+  </div>
+);
 }
