@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import Particles from "./components/particles";
+import Terminal from './components/terminal';
 
 const navigation = [
 	{ name: "Projects", href: "/projects" },
@@ -34,18 +35,9 @@ export default function Home() {
 
 			<div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 			<div className="my-16 text-center animate-fade-in">
-				<h2 className="text-sm text-zinc-500 ">
-					Hi, my name is Tom, I'm a PhD student at{" "}
-					<Link
-						target="_blank"
-						href="https://www.newcastle.edu.au/"
-						className="underline duration-500 hover:text-zinc-300"
-					>
-						University of Newcastle
-					</Link>
-
-					<br /> focused on bringing robotics to everyday life.
-				</h2>
+				<Terminal
+					text="Hii, my name is Tom, I am a PhD student at the University of Newcastle focused on bringing robotics to everyday life."
+				/>
 			</div>
 		</div>
 	);
