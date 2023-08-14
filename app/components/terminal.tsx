@@ -2,7 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 
-export default function Terminal({ text }) {
+interface TerminalProps {
+  text: string;
+}
+
+export default function Terminal({ text }: TerminalProps) {
   const [typedText, setTypedText] = useState('');
 
   useEffect(() => {
