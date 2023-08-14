@@ -13,7 +13,7 @@ const socials = [
 	},
 	{
 		icon: <Mail size={20} />,
-		href: "mailto:dev@chronark.com",
+		href: "mailto:dev@thomas.obrien@uon.edu.au",
 		label: "Email",
 		handle: "thomas.obrien@uon.edu.au",
 	},

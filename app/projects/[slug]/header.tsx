@@ -1,5 +1,5 @@
 "use client";
-import { ArrowLeft, Eye, Github, Twitter } from "lucide-react";
+import { ArrowLeft, Eye, Github, Twitter, Linkedin } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -61,8 +61,8 @@ export const Header: React.FC<Props> = ({ project}) => {
 							} `}
 						>
 						</span>
-						<Link target="_blank" href="https://twitter.com/chronark_">
-							<Twitter
+						<Link target="_blank" href="https://www.linkedin.com/in/thomas-o-brien-47078b165/?originalSubdomain=au">
+							<Linkedin
 								className={`w-6 h-6 duration-200 hover:font-medium ${
 									isIntersecting
 										? " text-zinc-400 hover:text-zinc-100"
@@ -70,7 +70,7 @@ export const Header: React.FC<Props> = ({ project}) => {
 								} `}
 							/>
 						</Link>
-						<Link target="_blank" href="https://github.com/chronark">
+						<Link target="_blank" href="https://github.com/Tom0Brien/tom/tree/main">
 							<Github
 								className={`w-6 h-6 duration-200 hover:font-medium ${
 									isIntersecting
