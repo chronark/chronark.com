@@ -1,12 +1,217 @@
 ---
 title: "Kinematics"
-description: Kinematics
+description: Kinematics describe geometrical aspects of motion regardless of how motion is created.
 date: "2023-01-01"
 published: true
 ---
 
+### Vector Magnitudes
+
+Magnitudes in mechanics are vectors in a 3-dimensional space: Position, Velocity, Acceleration, Force, Torque, etc.
+We will denote such quantities by $\vec{u}, \vec{v}, \vec{w}$
+Addition:
+
+$$
+\begin{aligned}
+\vec{w} & =\vec{u}+\vec{v} \\
+\vec{v} & =a \vec{u}
+\end{aligned}
+$$
+
+### Basis
+
+A basis is a maximal set of linearly independent vectors. In the Euclidean three-dimensional space, every basis has 3 vectors:
+
+$$
+\{a\} \equiv\left\{\vec{a}_1, \vec{a}_2, \vec{a}_3\right\}
+$$
+
+Vectors can then be expressed as a linear combination of the elements of a basis:
+
+$$
+\vec{u}=u_1^a \vec{a}_1+u_2^a \vec{a}_2+u_3^a \vec{a}_3
+$$
+
+### Basis & Coordinates
+
+Once we express a vector magnitude using a basis, we can represent it as a column matrix:
+
+$$
+\vec{u}=u_1^a \vec{a}_1+u_2^a \vec{a}_2+u_3^a \vec{a}_3 \equiv \mathbf{u}^a=\left[\begin{array}{c}
+u_1^a \\
+u_2^a \\
+u_3^a
+\end{array}\right]
+$$
+
+Note:
+
+- The matrix representation is always related to a basis. This will be denoted by a right superscript.
+
+- Vector magnitude equations hold independent of the basis used to represent the vectors.
+
+- It is convenient to derive vector equations independent of any basis.
+
+- The matrix representation then allows us to make calculations and write computer programs, but they depend on a basis.
+
+### Examples
+
+- Inner product
+
+  $$
+  \vec{u} \cdot \vec{v} \quad \equiv \quad\left(\mathbf{u}^a\right)^{\top} \mathbf{v}^a=\left[\begin{array}{lll}
+  u_1^a & u_2^a & u_3^a
+  \end{array}\right]\left[\begin{array}{c}
+  v_1^a \\
+  v_2^a \\
+  v_3^a
+  \end{array}\right]
+  $$
+
+- Vector Product
+
+  $$
+  \vec{w}=\vec{u} \times \vec{v} \quad \equiv \quad \mathbf{w}^a=\mathbf{S}\left(\mathbf{u}^a\right) \mathbf{v}^a
+  $$
+
+- Skew-symmetric operator
+
+  $$
+  \quad \mathbf{S}(\mathbf{u})=-\mathbf{S}^{\boldsymbol{\top}}(\mathbf{u})=\left[\begin{array}{ccc}0 & -u_3 & u_2 \\ u_3 & 0 & -u_1 \\ -u_2 & u_1 & 0\end{array}\right]
+  $$
+
+### Coordinate transformations
+
+Consider two bases $\{a\}$ and $\{b\}$. Then
+
+$$
+\begin{gathered}
+\vec{u}=u_1^a \vec{a}_1+u_2^a \vec{a}_2+u_3^a \vec{a}_3=u_1^b \vec{b}_1+u_2^b \vec{b}_2+u_3^b \vec{b}_3 \\
+u_1^b=\vec{u} \cdot \vec{b}_1, \quad u_2^b=\vec{u} \cdot \vec{b}_2, \quad u_3^b=\vec{u} \cdot \vec{b}_3 \\
+u_1^b=\left(u_1^a \vec{a}_1+u_2^a \vec{a}_2+u_3^a \vec{a}_3\right) \cdot \vec{b}_1, \\
+u_2^b=\left(u_1^a \vec{a}_1+u_2^a \vec{a}_2+u_3^a \vec{a}_3\right) \cdot \vec{b}_2, \\
+u_3^b=\left(u_1^a \vec{a}_1+u_2^a \vec{a}_2+u_3^a \vec{a}_3\right) \cdot \vec{b}_3
+\end{gathered}
+$$
+
+$$
+\left[\begin{array}{l}
+u_1^b \\
+u_2^b \\
+u_3^b
+\end{array}\right]=\left[\begin{array}{lll}
+\left(\vec{a}_1 \cdot \vec{b}_1\right) & \left(\vec{a}_2 \cdot \vec{b}_1\right) & \left(\vec{a}_3 \cdot \vec{b}_1\right) \\
+\left(\vec{a}_1 \cdot \vec{b}_2\right) & \left(\vec{a}_2 \cdot \vec{b}_2\right) & \left(\vec{a}_3 \cdot \vec{b}_2\right) \\
+\left(\vec{a}_1 \cdot \vec{b}_3\right) & \left(\vec{a}_2 \cdot \vec{b}_3\right) & \left(\vec{a}_3 \cdot \vec{b}_3\right)
+\end{array}\right]\left[\begin{array}{l}
+u_1^a \\
+u_2^a \\
+u_3^a
+\end{array}\right]
+$$
+
+Coordinate transformation matrix:
+
+$$
+\mathbf{u}^b=\mathbf{C}_a^b \mathbf{u}^a
+$$
+
+Coordinate transformation matrices are orthogonal:
+
+$$
+\mathbf{C}_a^b\left(\mathbf{C}_a^b\right)^{\top}=\mathbf{I} \quad \mathbf{C}_b^a=\left(\mathbf{C}_a^b\right)^{-1}=\left(\mathbf{C}_a^b\right)^{\top}
+$$
+
+### 1st order Tensors
+
+A magnitude whose coordinates in different bases are linearly related according to
+
+$$
+u_i^b=\sum_j C_{i j} u_j^a
+$$
+
+where $C_{i j}$ are the elements of the coordinate transformation matrix, is called a vector or first order tensor.
+Hence we call $\vec{u}, \vec{v} \quad$ the tensor forms
+
+### 2nd order Tensors
+
+A second-order tensor allows transforming one vector into another.
+Examples
+Cross-product tensor, $\vec{S}_u: \quad \vec{w}=\vec{S}_u \cdot \vec{v} \quad(\equiv \vec{u} \times \vec{v})$
+Inertia tensor, $\quad \vec{I}_c: \quad \vec{L}_c=\vec{I}_c \cdot \vec{\omega}$
+Think of the tensor "." as an operation that maps a vector into another.
+When a $2^{\text {nd }}$ order tensor is expressed in a basis, it becomes a $3 \times 3$ matrix.
+
+When a $2^{\text {nd }}$ order tensor is expressed in a basis, it becomes a matrix:
+
+$$
+\begin{gathered}
+\vec{S}_u: \quad \vec{w}=\vec{S}_u \cdot \vec{v} \quad(\equiv \vec{u} \times \vec{v}) \\
+\mathbf{w}^a=\mathbf{S}\left(\mathbf{u}^a\right) \mathbf{v}^a \\
+\mathbf{S}\left(\mathbf{u}^a\right)=\left[\begin{array}{ccc}
+0 & -u_3^a & u_2^a \\
+u_3^a & 0 & -u_1^a \\
+-u_2^a & u_1^a & 0
+\end{array}\right]
+\end{gathered}
+$$
+
+Tensor operations are independent of the basis in which the vectors are expressed. Matrix forms are always related to a basis.
+
+$$
+\begin{array}{rll}
+\vec{u} \cdot \vec{v} & \equiv & \left(\mathbf{u}^a\right)^T \mathbf{v}^a \\
+\vec{w}=\vec{u} \times \vec{v} & \equiv & \mathbf{w}^a=\mathbf{S}\left(\mathbf{u}^a\right) \mathbf{v}^a
+\end{array}
+$$
+
+### Reference Frame & Coordinate Systems
+
+A reference frame is perspective from which the motion of a body or an object is described by an observer. A reference frame can be defined by a set of at least 3 non-co-linear points in space that are rigidly connected.
+
+A coordinate system is a mathematical entity that allows us to establish a one-to-one correspondence between vector magnitudes and scalars called coordinates. A basis defines a coordinate system.
+Therefore, a reference frame is not the same as a coordinate system, one is physical and the other is mathematical.
+
+We will denote reference frames by $\mathcal{A}, \mathcal{B}$ and bases associated with reference frames by $\{a\},\{b\}$
+
+### Time-derivative of a vector
+
+The time derivative of a scalar magnitude is independent of the reference frame in which the magnitude is observed.
+The time derivative of a vector magnitude depends, in general, on the reference frame in which the magnitude is observed.
+We will use a notation that indicates this explicitly by using a left superscript:
+
+$$
+\frac{\mathcal{A} d \vec{r}}{d t}=\lim _{\Delta t \rightarrow 0}^{\mathcal{A}} \frac{\vec{r}(t+\Delta t)-\vec{r}(t)}{\Delta t}
+$$
+
+In general,
+
+$$
+\frac{\mathcal{A}_{\mathrm{d}} \vec{r}}{\mathrm{~d} t} \not \equiv \frac{\mathcal{B}^{\mathcal{B}} \vec{r}}{\mathrm{~d} t}
+$$
+
+### (Rate of) Transport Theorem (TT)
+
+Theorem 1 (Rate of Change Transport Theorem): Consider the scenario depicted in the figure, and assume that $\mathcal{B}$ only rotates with respect of $\mathcal{A}$. Then there exist a unique vector $\vec{\omega}_{\mathcal{B} / \mathcal{A}}$ called the angular velocity of $\mathcal{B}$ with respect of $\mathcal{A}$ such that
+This formula is key to derive kinematic models. We will be using it a lot!
+
+### Addition of angular velocities
+
+$$
+\begin{gathered}
+\frac{\mathcal{A}_{\mathrm{d} u}}{\mathrm{~d} t}=\frac{\mathcal{B}_{\mathrm{d} u}}{\mathrm{~d} t}+\vec{\omega}_{\mathcal{B} / \mathcal{A}} \times \vec{u}, \\
+\frac{\mathcal{B}_{\mathrm{d}} \vec{u}}{\mathrm{~d} t}=\frac{\mathcal{C}_{\mathrm{d} \vec{u}}}{\mathrm{~d} t}+\vec{\omega}_{\mathcal{C} / \mathcal{B}} \times \vec{u}, \\
+\frac{\mathcal{C}_{\mathrm{d} u}}{\mathrm{~d} t}=\frac{\mathcal{D}_{\mathrm{d} u}}{\mathrm{~d} t}+\vec{\omega}_{\mathcal{D} / \mathcal{C}} \times \vec{u} . \\
+\frac{\mathcal{A}_{\mathrm{d}} \vec{u}}{\mathrm{~d} t}=\frac{\mathcal{D}_{\mathrm{d} \vec{u}}}{\mathrm{~d} t}+\left(\vec{\omega}_{\mathcal{D} / \mathcal{C}}+\vec{\omega}_{\mathcal{C} / \mathcal{B}}+\vec{\omega}_{\mathcal{B} / \mathcal{A}}\right) \times \vec{u} \\
+\vec{\omega}_{\mathcal{D} / \mathcal{A}}=\vec{\omega}_{\mathcal{D} / \mathcal{C}}+\vec{\omega}_{\mathcal{C} / \mathcal{B}}+\vec{\omega}_{\mathcal{B} / \mathcal{A}}
+\end{gathered}
+$$
+
+Note how the subscript notation works like fraction multiplications.
+
 ### Position
 
-The position of a point P relative to point A can be written as:
+The position vector denoted by $r_{P/A}$ indicates “the position of the point P with respect
+to the point A.”
 
-<latex>$$r _ P / A$$ </latex>
+### Velocity

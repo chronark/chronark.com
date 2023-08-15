@@ -5,6 +5,7 @@ import Terminal from './components/terminal';
 
 const navigation = [
 	{ name: "Projects", href: "/projects" },
+	{ name: "Notes", href: "/notes" },
 	{ name: "Contact", href: "/contact" },
 ];
 

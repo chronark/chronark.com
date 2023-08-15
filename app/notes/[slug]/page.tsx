@@ -4,8 +4,8 @@ import { Mdx } from "@/app/components/mdx";
 import { Header } from "./header";
 import "./mdx.css";
 import { ReportView } from "./view";
-import rehypeKatex from 'rehype-katex'
-import remarkMath from 'remark-math'
+
+import 'katex/dist/katex.min.css';
 
 export const revalidate = 60;
 
