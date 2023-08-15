@@ -15,6 +15,7 @@ export default function Terminal({ text }: TerminalProps) {
     const startTyping = () => {
       let i = 0;
       const typing = setInterval(() => {
+        console.log(text.length);
         if (i < text.length) {
           setTypedText((prevText) => prevText + text.charAt(i));
           i++;
@@ -32,8 +33,8 @@ export default function Terminal({ text }: TerminalProps) {
   }, [text]);
 
   return (
-    <div className="text-white text-sm p-4 rounded-lg font-mono overflow-auto">
-    <div className="whitespace-pre-line overflow-wrap break-all">
+    <div className="text-white text-sm p-4 rounded-lg font-mono lg:w-full sm:w-64 break-all">
+    <div className="whitespace-pre-line overflow-wrap">
       <span className="text-zinc-500">tom</span>
       <span>@</span>
       <span className="text-zinc-500">obrien</span>:~$ <span className="typing">{typedText}</span>
