@@ -6,19 +6,19 @@ import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
 	title: {
-		default: "chronark.com",
-		template: "%s | chronark.com",
+		default: "tomobrien.vercel.app",
+		template: "%s | tomobrien.vercel.app",
 	},
-	description: "Software engineer at upstash.com and founder of planetfall.io",
+	description: "Robotics PhD @ University of Newcastle",
 	openGraph: {
-		title: "chronark.com",
+		title: "tomobrien.vercel.app",
 		description:
-			"Software engineer at upstash.com and founder of planetfall.io",
-		url: "https://chronark.com",
-		siteName: "chronark.com",
+			"Robotics PhD @ University of Newcastle",
+		url: "https://tomobrien.vercel.app",
+		siteName: "tomobrien.vercel.app",
 		images: [
 			{
-				url: "https://chronark.com/og.png",
+				url: "https://tomobrien.vercel.app/og.png",
 				width: 1920,
 				height: 1080,
 			},
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 		},
 	},
 	twitter: {
-		title: "Chronark",
+		title: "tom",
 		card: "summary_large_image",
 	},
 	icons: {
