@@ -4,26 +4,27 @@ import LocalFont from "@next/font/local";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
 
+
 export const metadata: Metadata = {
 	title: {
-		default: "chronark.com",
-		template: "%s | chronark.com",
+		default: "kalimero.rocks",
+		template: "%s |kalimero.rocks",
 	},
-	description: "Software engineer at upstash.com and founder of planetfall.io",
+	description: "Wild at Art ComiXmaker since 1999",
 	openGraph: {
-		title: "chronark.com",
+		title: "kalimero.rocks",
 		description:
-			"Software engineer at upstash.com and founder of planetfall.io",
-		url: "https://chronark.com",
-		siteName: "chronark.com",
+			"Wild at Art ComiXmaker since 1999",
+		url: "https://kalimero.rocks",
+		siteName: "kalimero.rocks",
 		images: [
 			{
-				url: "https://chronark.com/og.png",
+				url: "https://kalimero.rocks/og.png",
 				width: 1920,
 				height: 1080,
 			},
 		],
-		locale: "en-US",
+		locale: "fr-FR",
 		type: "website",
 	},
 	robots: {
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
 		},
 	},
 	twitter: {
-		title: "Chronark",
+		title: "Kalimero_666_",
 		card: "summary_large_image",
 	},
 	icons: {
