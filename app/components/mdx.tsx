@@ -73,7 +73,7 @@ const components = {
 	),
 	p: ({ className, ...props }) => (
 		<p
-			className={clsx("leading-7 [&:not(:first-child)]:mt-6", className)}
+			className={clsx("leading-7 text-zinc-900 [&:not(:first-child)]:mt-6", className)}
 			{...props}
 		/>
 	),
