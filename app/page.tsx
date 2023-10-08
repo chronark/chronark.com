@@ -11,7 +11,7 @@ const navigation = [
 export default function Home() {
   return (
     <>
-      <Navigation />
+      <Navigation hideBackArrow={true} />
 
       <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
         <Particles className="absolute inset-0 -z-10" quantity={150} />
