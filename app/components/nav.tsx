@@ -6,9 +6,13 @@ import { Logo } from "./logo";
 
 interface props {
   hideBackArrow?: boolean;
+  showLogo?: boolean;
 }
 
-export const Navigation: React.FC<props> = ({ hideBackArrow = false }) => {
+export const Navigation: React.FC<props> = ({
+  hideBackArrow = false,
+  showLogo = true,
+}) => {
   const ref = useRef<HTMLElement>(null);
   const [isIntersecting, setIntersecting] = useState(true);
 
@@ -36,37 +40,39 @@ export const Navigation: React.FC<props> = ({ hideBackArrow = false }) => {
             {!hideBackArrow && (
               <Link
                 href="/"
-                className="duration-200 text-zinc-300 hover:text-white"
+                className="duration-100 text-zinc-300 hover:text-white"
               >
                 <ArrowLeft className="w-6 h-6 " />
               </Link>
             )}
             <Link
               href="/"
-              className="duration-200 text-zinc-300 hover:text-white"
+              className="duration-100 text-zinc-300 hover:text-white"
             >
               Home
             </Link>
             <Link
               href="/blog"
-              className="duration-200 text-zinc-300 hover:text-white"
+              className="duration-100 text-zinc-300 hover:text-white"
             >
               Blog
             </Link>
             <Link
               href="/contact"
-              className="duration-200 text-zinc-300 hover:text-white"
+              className="duration-100 text-zinc-300 hover:text-white"
             >
               Contact
             </Link>
           </div>
 
-          <Link
-            href="/"
-            className="duration-200 text-zinc-200 hover:text-white"
-          >
-            <Logo />
-          </Link>
+          {showLogo && (
+            <Link
+              href="/"
+              className="duration-100 text-zinc-300 hover:text-white"
+            >
+              <Logo />
+            </Link>
+          )}
         </div>
       </div>
     </header>
