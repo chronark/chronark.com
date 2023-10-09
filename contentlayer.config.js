@@ -33,13 +33,22 @@ export const Blog = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
-    date: {
+    publish_date: {
       type: "date",
     },
-    url: {
+    last_update_date: {
+      type: "date",
+    },
+    author: {
       type: "string",
     },
-    repository: {
+    tags: {
+      type: "string",
+    },
+    previous: {
+      type: "string",
+    },
+    next: {
       type: "string",
     },
   },

@@ -20,9 +20,15 @@ export default async function BlogPage() {
     return acc;
   }, {} as Record<string, number>);
 
-  const featured = allBlogs.find((x) => x.slug === "unkey")!;
-  const top2 = allBlogs.find((x) => x.slug === "planetfall")!;
-  const top3 = allBlogs.find((x) => x.slug === "highstorm")!;
+  const featured = allBlogs.find(
+    (x) => x.slug === "linux-server-guide-for-beginners"
+  )!;
+  const top2 = allBlogs.find(
+    (x) => x.slug === "linux-server-guide-for-beginners"
+  )!;
+  const top3 = allBlogs.find(
+    (x) => x.slug === "linux-server-guide-for-beginners"
+  )!;
   const sorted = allBlogs
     .filter((x) => x.published)
     .filter(
@@ -31,8 +37,8 @@ export default async function BlogPage() {
     )
     .sort(
       (a, b) =>
-        new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
-        new Date(a.date ?? Number.POSITIVE_INFINITY).getTime()
+        new Date(b.publish_date ?? Number.POSITIVE_INFINITY).getTime() -
+        new Date(a.publish_date ?? Number.POSITIVE_INFINITY).getTime()
     );
 
   return (
@@ -55,11 +61,13 @@ export default async function BlogPage() {
               <article className="relative w-full h-full p-4 md:p-8">
                 <div className="flex items-center justify-between gap-2">
                   <div className="text-xs text-zinc-100">
-                    {featured.date ? (
-                      <time dateTime={new Date(featured.date).toISOString()}>
+                    {featured.publish_date ? (
+                      <time
+                        dateTime={new Date(featured.publish_date).toISOString()}
+                      >
                         {Intl.DateTimeFormat(undefined, {
                           dateStyle: "medium",
-                        }).format(new Date(featured.date))}
+                        }).format(new Date(featured.publish_date))}
                       </time>
                     ) : (
                       <span>SOON</span>
