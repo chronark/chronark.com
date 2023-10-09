@@ -35,7 +35,7 @@ export const Navigation: React.FC<props> = ({
             : "bg-zinc-900/500  border-zinc-800 "
         }`}
       >
-        <div className="container flex flex-row-reverse items-center justify-between p-6 mx-auto">
+        <div className="container h-20 flex flex-row-reverse items-center justify-between p-6 mx-auto">
           <div className="flex justify-between gap-8">
             {!hideBackArrow && (
               <Link

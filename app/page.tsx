@@ -3,6 +3,7 @@ import React from "react";
 import Particles from "./components/particles";
 import { Navigation } from "./components/nav";
 import { Github, Linkedin, Twitter } from "lucide-react";
+import { Footer } from "./components/footer";
 
 const navigation = [
   { name: "Blog", href: "/blog" },
@@ -38,19 +39,19 @@ export default function Home() {
       <Navigation hideBackArrow={true} showLogo={false} />
 
       <div
-        className="flex flex-col items-center justify-center w-screen py-48
+        className="flex flex-col items-center justify-center w-screen pt-48
           bg-grad bg-gradient-to-tl from-black via-zinc-700/30 to-black"
       >
         <Particles className="absolute inset-0 -z-10" quantity={150} />
 
-        <h2 className="text-zinc-400 tracking-wide-xl text-xl mb-8 bg-gradient-to-r from-zinc-300 to-zinc-100 text-transparent bg-clip-text">
+        <h2 className="text-zinc-400 tracking-wide-xl text-xl mb-8 bg-gradient-to-r from-zinc-400 to-zinc-100 text-transparent bg-clip-text">
           HADI SAMADZAD
         </h2>
         <h1 className="text-zinc-300 font-bold text-6xl bg-gradient-to-r from-blue-400 to bg-green-400 text-transparent bg-clip-text">
           Full-stack Web Developer
           <br />
           {stacks.map((x) => (
-            <span className="bg-zinc-300 text-zinc-900 rounded-br-lg text-xl font-extrabold px-1 mx-2 bg-gradient-to-r from-zinc-300 to-zinc-100">
+            <span className="bg-zinc-300 text-zinc-900 rounded-br-lg text-lg font-extrabold px-1 mx-2 bg-gradient-to-r from-zinc-300 to-zinc-100">
               {x}
             </span>
           ))}
@@ -72,22 +73,25 @@ export default function Home() {
               target="_blank"
               className="p-8 w-52 flex flex-col items-center gap-2 group"
             >
-              <span
-                className="absolute w-px h-1/3 bg-gradient-to-b from-zinc-300 via-zinc-500/50 to-transparent"
-                aria-hidden="true"
-              />
-              <span className="z-10 flex items-center justify-center w-10 h-10 text-sm rounded-br-lg bg-zinc-200 text-zinc-900 group-hover:text-zinc-700">
+              <span className="flex items-center justify-center w-10 h-10 text-zinc-300 group-hover:text-zinc-100">
                 {s.icon}
               </span>
-              <div className="z-10 flex flex-col items-center">
-                <span className="text-lg text-zinc-100">{s.handle}</span>
-                <span className="mt-4 text-md text-center text-zinc-300 group-hover:text-white">
+              <div className="flex flex-col items-center">
+                <span className="text-zinc-400 group-hover:text-zinc-100">
+                  {s.handle}
+                </span>
+                <span className="mt-2 text-center text-zinc-400 group-hover:text-zinc-100">
                   {s.label}
                 </span>
               </div>
+              <span
+                className="pt-20 w-px bg-gradient-to-b from-zinc-300 to-transparent"
+                aria-hidden="true"
+              />
             </Link>
           ))}
         </div>
+        <Footer />
       </div>
     </>
   );
