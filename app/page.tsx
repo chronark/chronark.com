@@ -47,7 +47,7 @@ export default function Home() {
         <h2 className="text-zinc-400 tracking-wide-xl text-xl mb-8 bg-gradient-to-r from-zinc-400 to-zinc-100 text-transparent bg-clip-text">
           HADI SAMADZAD
         </h2>
-        <h1 className="text-zinc-300 font-bold text-6xl bg-gradient-to-l from-yellow-200 to bg-green-400 text-transparent bg-clip-text">
+        <h1 className="text-zinc-300 font-bold text-6xl bg-gradient-to-l from-yellow-200 to-green-400 text-transparent bg-clip-text">
           Full-stack Web Developer
           <br />
           {stacks.map((x) => (
