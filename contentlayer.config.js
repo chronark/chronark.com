@@ -35,6 +35,11 @@ export const Blog = defineDocumentType(() => ({
     },
     publish_date: {
       type: "date",
+      required: true,
+    },
+    tags: {
+      type: "string",
+      required: true,
     },
     last_update_date: {
       type: "date",
@@ -42,9 +47,7 @@ export const Blog = defineDocumentType(() => ({
     author: {
       type: "string",
     },
-    tags: {
-      type: "string",
-    },
+
     previous: {
       type: "string",
     },

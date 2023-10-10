@@ -8,15 +8,16 @@ type Props = {
     title: string;
     description: string;
     publish_date: string;
-    last_update_date: string;
-    author: string;
+    last_update_date?: string;
+    author?: string;
     tags: string;
-    previous: string;
-    next: string;
+    previous?: string;
+    next?: string;
   };
 
   views: number;
 };
+
 export const Header: React.FC<Props> = ({ blog: blog, views }) => {
   const ref = useRef<HTMLElement>(null);
   const [isIntersecting, setIntersecting] = useState(true);
@@ -30,6 +31,8 @@ export const Header: React.FC<Props> = ({ blog: blog, views }) => {
     observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
+
+  const tags = blog.tags.split(";");
 
   return (
     <header
@@ -86,24 +89,31 @@ export const Header: React.FC<Props> = ({ blog: blog, views }) => {
                 : "text-zinc-600 hover:text-zinc-900"
             } `}
           >
-            <ArrowLeft className="w-6 h-6 " />
+            <ArrowLeft className="w-6 h-6" />
           </Link>
         </div>
       </div>
-      <div className="container mx-auto relative isolate overflow-hidden  py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center flex flex-col items-center">
-          <div className="mx-auto max-w-2xl lg:mx-0">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl font-display">
-              {blog.title}
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-zinc-300">
-              {blog.description}
-            </p>
-          </div>
-
-          <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-            <div className="grid grid-cols-1 gap-y-6 gap-x-8 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10"></div>
-          </div>
+      <div className="container mx-auto relative isolate overflow-hidden pt-28 pb-40">
+        <div className="mx-auto max-w-6xl px-20 text-center flex flex-col items-center">
+          <time className="text-zinc-400 mb-3" dateTime={blog.publish_date}>
+            {new Date(blog.publish_date).toDateString()}
+            <br />
+            <span className="text-sm text-zinc-500">
+              {blog.last_update_date &&
+                ` Last Update: ${new Date(blog.publish_date).toDateString()}`}
+            </span>
+          </time>
+          <h1 className="text-4xl sm:text-6xl font-bold bg-gradient-to-r from-zinc-300 to-zinc-100 text-transparent bg-clip-text">
+            {blog.title}
+          </h1>
+          <p className="mt-6 text-zinc-300">{blog.description}</p>
+          <p className="absolute bottom-10">
+            {tags.map((x) => (
+              <span className="rounded-br-lg mx-2 px-4 py-2 bg-lime-600/10 text-lime-200">
+                {x}
+              </span>
+            ))}
+          </p>
         </div>
       </div>
     </header>
