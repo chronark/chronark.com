@@ -66,7 +66,7 @@ export default function Home() {
           </h2>
         </div>
 
-        <div className="flex  mt-24">
+        <div className="flex mt-24 mb-20">
           {socials.map((s) => (
             <Link
               href={s.href}

@@ -3,6 +3,7 @@ import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
+import { Footer } from "../components/footer";
 
 const socials = [
   {
@@ -58,6 +59,7 @@ export default function Example() {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { Header } from "./header";
 import "./mdx.css";
 import { ReportView } from "./view";
 import { Redis } from "@upstash/redis";
+import { Footer } from "@/app/components/footer";
 
 export const revalidate = 60;
 
@@ -43,6 +44,7 @@ export default async function PostPage({ params }: Props) {
       <article className="p-4 mx-auto prose prose-zinc prose-quoteless max-w-3xl prose-a:text-pink-700">
         <Mdx code={blog.body.code} />
       </article>
+      <Footer />
     </div>
   );
 }
