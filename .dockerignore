@@ -1,0 +1,14 @@
+node_modules
+npm-debug.log
+build
+
+.git
+.gitignore
+.github
+
+.next
+.storybook
+
+.vscode
+.DS_Store
+.contentlayer

@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  hadisamadzadcom:
+    container_name: hadisamadzadcom
+    image: "hadisamadzadcom"
+    restart: always
+
+    ports:
+      - 43002:3000
+    build:
+      context: .
+      dockerfile: Dockerfile
