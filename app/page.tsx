@@ -47,15 +47,16 @@ export default function Home() {
         <h2 className="text-zinc-400 tracking-wide-xl text-xl mb-8 bg-gradient-to-r from-zinc-400 to-zinc-100 text-transparent bg-clip-text">
           HADI SAMADZAD
         </h2>
-        <h1 className="text-zinc-300 font-bold text-6xl bg-gradient-to-l from-yellow-200 to-green-400 text-transparent bg-clip-text">
+        <h1 className="font-bold text-6xl bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
           Full-stack Web Developer
-          <br />
+        </h1>
+        <div className="mt-8">
           {stacks.map((x) => (
-            <span className="bg-zinc-300 text-zinc-900 rounded-br-lg text-lg font-extrabold px-1 mx-2 bg-gradient-to-r from-zinc-300 to-zinc-100">
+            <span className="rounded-br-lg text-lg font-extrabold px-1 mx-2 bg-zinc-200 ">
               {x}
             </span>
           ))}
-        </h1>
+        </div>
 
         <div className="my-10 w-2/3 text-center">
           <h2 className="text-md text-zinc-400 ">
