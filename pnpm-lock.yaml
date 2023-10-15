@@ -29,9 +29,6 @@ dependencies:
   '@types/react-dom':
     specifier: 18.2.4
     version: 18.2.4
-  '@upstash/redis':
-    specifier: ^1.20.6
-    version: 1.20.6
   contentlayer:
     specifier: ^0.3.0
     version: 0.3.2(esbuild@0.17.19)(markdown-wasm@1.2.0)
