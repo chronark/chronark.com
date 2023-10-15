@@ -27,10 +27,10 @@ export const Article: React.FC<Props> = ({ project }) => {
 					</span>
 					
 				</div>
-				<h2  className="z-20 text-xl font-medium duration-1000 lg:text-3xl text-zinc-700 group-hover:text-red font-display" >
+				<h2  className="z-20 text-xl font-medium duration-1000 lg:text-3xl text-zinc-700  font-display" >
 					{project.title}
 				</h2>
-				<p className="z-20 mt-4 text-sm h-20 duration-1000 text-zinc-400 group-hover:text-zinc-700 font-sans">
+				<p className="z-20 mt-4 mb-10 text-sm h-20 duration-1000 text-zinc-400 group-hover:text-zinc-700 font-sans">
 					{project.description}
 				</p>
 				<div className="flex justify-center">
