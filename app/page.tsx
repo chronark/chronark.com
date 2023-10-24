@@ -11,7 +11,7 @@ export default function Home() {
 	return (
 		<div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
 			<nav className="my-16 animate-fade-in">
-				<ul className="flex items-center justify-center gap-4">
+				<ul className="flex flex-wrap items-center justify-center gap-4">
 					{navigation.map((item) => (
 						<Link
 							key={item.href}
@@ -34,7 +34,7 @@ export default function Home() {
 
 			<div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 			<div className="my-16 text-center animate-fade-in">
-				<h2 className="text-sm text-zinc-500 ">
+				<h2 className="text-sm text-zinc-500 mx-6">
 					We are a <b>Cloud</b> agency that delivers <b>Radical Services</b> for companies willing to accelerate
 					their Cloud transformation
 				</h2>
