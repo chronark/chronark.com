@@ -7,7 +7,6 @@ export function Analytics() {
 	}
 	return (
 		<script
-			nonce="Cgr34VoWKkFdTCQ3"
 			src="https://beamanalytics.b-cdn.net/beam.min.js"
 			data-token={token}
 			async
