@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export default function middxleware(request: NextRequest) {
+<<<<<<< HEAD
+=======
+  // const config = {
+  //   matcher: ['/*'],
+  // }
+>>>>>>> f14e1bf7df3195dfa0c0df05ff5eef0e3152361d
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
   const cspHeader = `
     default-src 'self';
