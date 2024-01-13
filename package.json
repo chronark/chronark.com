@@ -9,6 +9,9 @@
     "fmt": "pnpm rome check . --apply-suggested && pnpm rome format . --write"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@next/font": "^13.4.3",
     "@next/mdx": "^13.4.3",
     "@types/node": "20.2.1",
@@ -22,6 +25,7 @@
     "next-contentlayer": "^0.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-fontawesome": "^1.7.1",
     "react-wrap-balancer": "^0.5.0",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-pretty-code": "^0.9.4",
