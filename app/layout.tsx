@@ -1,19 +1,21 @@
-import {Metadata} from "next";
-import {Inter} from "next/font/google";
-import LocalFont from "next/font/local";
-import "../global.css";
-import {Analytics} from "./components/analytics";
+import {SpeedInsights} from '@vercel/speed-insights/next';
+import {Metadata} from 'next';
+import {Inter} from 'next/font/google';
+import LocalFont from 'next/font/local';
+import '../global.css';
+import {Analytics} from './components/analytics';
+
 
 export const metadata: Metadata = {
   title: {
     default: "Bonafé.org",
     template: "%s | bonafe.org",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "Software Engineer | Full Stack Developer | Pentester | Blockchain Analyst | DevOps | Cloud Architect",
   openGraph: {
     title: "bonafe.org",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
+      "Software Engineer | Full Stack Developer | Pentester | Blockchain Analyst | DevOps | Cloud Architect",
     url: "https://bonafe.org",
     siteName: "bonafe.org",
     images: [
@@ -70,6 +72,7 @@ export default function RootLayout({
           }`}
       >
         {children}
+        <SpeedInsights/>
       </body>
     </html>
   );
