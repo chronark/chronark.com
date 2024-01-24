@@ -78,13 +78,13 @@ const components = {
 		/>
 	),
 	ul: ({ className, ...props }) => (
-		<ul className={clsx("my-6 ml-6 list-disc", className)} {...props} />
+		<ul className={clsx("my-6 ml-6 list-disc", className)} {...props}/>
 	),
 	ol: ({ className, ...props }) => (
-		<ol className={clsx("my-6 ml-6 list-decimal", className)} {...props} />
+		<ol className={clsx("my-6 ml-6 list-decimal", className)} {...props}/>
 	),
 	li: ({ className, ...props }) => (
-		<li className={clsx("mt-2", className)} {...props} />
+		<li className={clsx("mt-2", className)} {...props}/>
 	),
 	blockquote: ({ className, ...props }) => (
 		<blockquote
@@ -108,11 +108,11 @@ const components = {
 		/>
 	),
 	hr: ({ ...props }) => (
-		<hr className="my-4 border-zinc-200 md:my-8" {...props} />
+		<hr className="my-4 border-zinc-200 md:my-8" {...props}/>
 	),
 	table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
 		<div className="w-full my-6 overflow-y-auto">
-			<table className={clsx("w-full", className)} {...props} />
+			<table className={clsx("w-full", className)} {...props}/>
 		</div>
 	),
 	tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
@@ -172,7 +172,7 @@ export function Mdx({ code }: MdxProps) {
 
 	return (
 		<div className="mdx">
-			<Component components={components} />
+			<Component components={components}/>
 		</div>
 	);
 }
