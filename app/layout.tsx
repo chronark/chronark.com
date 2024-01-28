@@ -6,16 +6,16 @@ import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "chronark.com",
-    template: "%s | chronark.com",
+    default: "HashTeck | Soluções Tech",
+    template: "%s | HashTeck | Soluções Tech",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "Site da Hashteck Soluções Tecnologicas",
   openGraph: {
-    title: "chronark.com",
+    title: "HashTeck | Soluções Tech",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
-    url: "https://chronark.com",
-    siteName: "chronark.com",
+      "Site da Hashteck Soluções Tecnologicas",
+    url: "https://hashteck.app.vercel",
+    siteName: "HashTeck | Soluções Tech",
     images: [
       {
         url: "https://chronark.com/og.png",
