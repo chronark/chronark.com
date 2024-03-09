@@ -18,12 +18,12 @@ export const metadata: Metadata = {
     siteName: "HashTeck | Soluções Tech",
     images: [
       {
-        url: "https://chronark.com/og.png",
+        url: "https://hashteck.vercel.app/og.png",
         width: 1920,
         height: 1080,
       },
     ],
-    locale: "en-US",
+    locale: "pt-BR",
     type: "website",
   },
   robots: {
@@ -38,11 +38,11 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Chronark",
+    title: "HashTeck",
     card: "summary_large_image",
   },
   icons: {
-    shortcut: "/favicon.png",
+    shortcut: "/favicon.ico",
   },
 };
 const inter = Inter({
@@ -61,12 +61,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
+    <html lang="pt" className={[inter.variable, calSans.variable].join(" ")}>
       <head>
         <Analytics />
       </head>
       <body
-        className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
+        className={`bg-white ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
           }`}
       >
         {children}
