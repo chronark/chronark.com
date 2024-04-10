@@ -14,7 +14,7 @@ import '../mainpage.css'
 export const revalidate = 60;
 export default async function ProjectsPage() {
 	const featured = allProjects.find((project) => project.slug === "planetfall")!;
-	const top2 = allProjects.find((project) => project.slug === "planetfall")!;
+	const top2 = allProjects.find((project) => project.slug === "unkey")!;
 	const top3 = allProjects.find((project) => project.slug === "upstash-auth-analytics")!;
 	const sorted = allProjects
 		.filter((p) => p.published)
@@ -45,10 +45,10 @@ export default async function ProjectsPage() {
 				/>
 				<div className="main-lettering max-w-6xl mx-auto lg:mx-0  ">
 					<h1 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-7xl">
-						Juliano Grendene.
+						I am Juliano Grendene.
 					</h1>
 					<h1 className="text-3xl font-semi-bold tracking-tight text-zinc-900 sm:text-7xl">
-						Software developer &  UI/UX designer.
+						I like to get digital products done.
 					</h1>
 					
 
@@ -72,7 +72,7 @@ export default async function ProjectsPage() {
 						<Link href={`/projects/${featured.slug}`}>
 							<article className="relative w-full h-full p-4 md:p-8">
 								<div className="flex items-center justify-between ">
-									<div className=" text-sky-400">
+									<div className="text-sm text-sky-400">
 										{featured.date ? (
 											<time dateTime={new Date(featured.date).toISOString()}>
 												{Intl.DateTimeFormat(undefined, {
@@ -95,8 +95,8 @@ export default async function ProjectsPage() {
 								</p>
 								<Image
 									alt="blog"
-									width={300}
-									height={300}
+									width={900}
+									height={1200}
 									src={featured.image ? featured.image : 'favicon.png'}
 								/>
 								<div className="absolute bottom-4 pt-8 md:bottom-8">

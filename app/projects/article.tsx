@@ -36,8 +36,8 @@ export const Article: React.FC<Props> = ({ project }) => {
 				<div className="flex justify-center">
 				<Image 
 				alt="blog"
-				width={200}
-				height={200}
+				width={340}
+				height={500}
 				src={project.image ? project.image : 'favicon.png'}
 				/>
 				</div>

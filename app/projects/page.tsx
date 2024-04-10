@@ -9,8 +9,8 @@ import { Article } from './article';
 
 export const revalidate = 60;
 export default async function ProjectsPage() {
-	const featured = allProjects.find((project) => project.slug === "planetfall")!;
-	const top2 = allProjects.find((project) => project.slug === "planetfall")!;
+	const featured = allProjects.find((project) => project.slug === "unkey")!;
+	const top2 = allProjects.find((project) => project.slug === "unkey")!;
 	const top3 = allProjects.find((project) => project.slug === "upstash-auth-analytics")!;
 	const sorted = allProjects
 		.filter((p) => p.published)
