@@ -9,11 +9,11 @@ export const metadata: Metadata = {
 		default: "julianogwarp.com",
 		template: "%s | julianogwarp.com",
 	},
-	description: "Software engineer at upstash.com and founder of planetfall.io",
+	description: "Software engineer at",
 	openGraph: {
 		title: "julianogwarp.com",
 		description:
-			"Software engineer at upstash.com and founder of planetfall.io",
+			"Software engineer at ",
 		url: "https://julianogwarp.com",
 		siteName: "julianogwarp.com",
 		images: [
