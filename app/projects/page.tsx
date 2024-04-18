@@ -63,7 +63,7 @@ export default async function ProjectsPage() {
 								>
 									{featured.title}
 								</h2>
-								<p className="z-20 mt-4 mb-10 text-sm h-20 duration-1000 text-zinc-400 group-hover:text-zinc-700 font-sans">
+								<p className="z-20 mt-4 text-sm  duration-1000 text-zinc-400 group-hover:text-zinc-700 font-sans">
 									{featured.description}
 								</p>
 								<div className="flex justify-center">
