@@ -1,9 +1,9 @@
 @media (min-width: 1024px) { /* Adjust for Tailwind's sm breakpoint */
     .main-lettering {
-        padding-top: 3rem ;
+        padding-top: 12rem ;
     }
     .scroll-to-cards-button {
-        margin-top: 5rem; 
+        margin-top: 1rem; 
         transform: translateX(-50%);
     }
 }
@@ -11,10 +11,10 @@
 
 @media (min-width: 1880px) { /* Adjust for Tailwind's lg breakpoint */
     .main-lettering {
-        padding-top: 9rem ;
+        padding-top: 16rem ;
     }
     .scroll-to-cards-button {
-        margin-top: 200px;
+        margin-top: 300px;
         
     }
 }

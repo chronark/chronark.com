@@ -14,7 +14,7 @@ export const Article: React.FC<Props> = ({ project, imgWidth = 450, imgHeight = 
 	
 	return (
 		<Link href={`/projects/${project.slug}`}>
-			<article className="md:p-8">
+			<article className="md:p-8 cursor-fancy">
 				<div className="flex justify-between gap-2 items-center">
 					<span className="text-sm duration-500 text-sky-400 group-hover:text-sky-400 group-hover:border-zinc-800 drop-shadow-orange">
 						{project.date ? (
@@ -24,7 +24,7 @@ export const Article: React.FC<Props> = ({ project, imgWidth = 450, imgHeight = 
 								)}
 							</time>
 						) : (
-							<span className="cursor-fancy">SOON</span>
+							<span >SOON</span>
 						)}
 					</span>
 					
