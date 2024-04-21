@@ -11,7 +11,7 @@
 
 @media (min-width: 1880px) { /* Adjust for Tailwind's lg breakpoint */
     .main-lettering {
-        padding-top: 16rem ;
+        padding-top: 12rem ;
     }
     .scroll-to-cards-button {
         margin-top: 300px;

@@ -73,7 +73,7 @@ const components = {
 	),
 	p: ({ className, ...props }) => (
 		<p
-			className={clsx("leading-7 text-zinc-900 [&:not(:first-child)]:mt-6", className)}
+			className={clsx("leading-7 text-zinc-900 [&:not(:first-child)]", className)}
 			{...props}
 		/>
 	),
@@ -102,7 +102,7 @@ const components = {
 	}: React.ImgHTMLAttributes<HTMLImageElement>) => (
 		// eslint-disable-next-line @next/next/no-img-element
 		<img
-			className={clsx("rounded-md border border-zinc-200", className)}
+			className={clsx("", className)}
 			alt={alt}
 			{...props}
 		/>
@@ -118,7 +118,7 @@ const components = {
 	tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
 		<tr
 			className={clsx(
-				"m-0 border-t border-zinc-300 p-0 even:bg-zinc-100",
+				"m-0 border-t border-zinc-300 p-0 even:bg-zinc-50",
 				className,
 			)}
 			{...props}
@@ -154,7 +154,7 @@ const components = {
 	code: ({ className, ...props }) => (
 		<code
 			className={clsx(
-				"relative rounded border bg-zinc-300 bg-opacity-25 py-[0.2rem] px-[0.3rem] font-mono text-sm text-zinc-600",
+				"relative rounded border bg-zinc-50 bg-opacity-25 py-[0.2rem] px-[0.3rem] font-mono text-sm text-zinc-600",
 				className,
 			)}
 			{...props}
