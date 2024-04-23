@@ -38,7 +38,7 @@ export default async function ProjectsPage() {
     );
   const cardsSectionRef = useRef<HTMLDivElement>(null);
   const scrollToCards = () => {
-    cardsSectionRef;
+   
     if (cardsSectionRef.current) {
       cardsSectionRef.current.scrollIntoView({
         behavior: "smooth",
@@ -70,12 +70,12 @@ export default async function ProjectsPage() {
 
         <div className="flex pt-80 md:pt-42 justify-center"></div>
 
-        <div
-          className="w-full h-px mt-80 md:mt-0 bg-zinc-800"
-          ref={cardsSectionRef}
-        />
+        <div className="w-full h-px mt-80 md:mt-0 bg-zinc-800" />
 
-        <div className="grid grid-cols-1 gap-8 mt-80 mx-auto lg:grid-cols-2  ">
+        <div
+          ref={cardsSectionRef}
+          className="grid grid-cols-1 gap-8 mt-80 mx-auto lg:grid-cols-2  "
+        >
           <Card>
             <Link href={`/${featured.slug}`}>
               <article className="relative w-full h-full md:p-8 sm:p-8 p-4 cursor-fancy">
