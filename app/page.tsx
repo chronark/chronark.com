@@ -37,8 +37,10 @@ export default async function ProjectsPage() {
         new Date(a.date ?? Number.POSITIVE_INFINITY).getTime()
     );
   const cardsSectionRef = useRef<HTMLDivElement>(null);
-  const scrollToCards = () => {
-   
+  const scrollToCards = (event: any) => {
+    
+      event.preventDefault();
+    
     if (cardsSectionRef.current) {
       cardsSectionRef.current.scrollIntoView({
         behavior: "smooth",
@@ -59,7 +61,7 @@ export default async function ProjectsPage() {
             </h1>
             <div onClick={scrollToCards}>
               <button
-                onClick={scrollToCards}
+                onClick={(event) => scrollToCards(event)}
                 className="flex justify-center items-center rounded-full bg-white/50 backdrop-blur-md ml-4 border align-middle border-gray-200 md:w-7 md:h-7 w-6 h-6"
               >
                 <LucideChevronDown />
