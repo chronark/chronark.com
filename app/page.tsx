@@ -9,6 +9,7 @@ import { Navigation } from "./components/nav";
 import { Article } from "./article";
 import { BottomArticle } from "./bottomArticle";
 import Particles from "./components/particles";
+import { LucideChevronDown } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import "../mainpage.css";
@@ -37,6 +38,7 @@ export default async function ProjectsPage() {
     );
   const cardsSectionRef = useRef<HTMLDivElement>(null);
   const scrollToCards = () => {
+    cardsSectionRef;
     if (cardsSectionRef.current) {
       cardsSectionRef.current.scrollIntoView({
         behavior: "smooth",
@@ -46,32 +48,37 @@ export default async function ProjectsPage() {
   };
   return (
     <div className="relative">
-      <div className="px-6 pt-22 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
-        <div className="main-lettering max-w-6xl pb-24 mx-auto lg:mx-0">
-          <h1 className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
+      <div className="px-6 pt-22 mx-auto pt-12 space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
+        <div className="main-lettering max-w-6xl pb-80 md:pb-24 mx-auto lg:mx-0">
+          <h1 className="text-2xl font-bold tracking-tight text-zinc-900 md:text-4xl">
             I am Juliano Grendene.
           </h1>
           <div className="flex items-center">
-            <h1 className="text-3xl font-semi-bold tracking-tight align-middle text-zinc-900 sm:text-4xl">
-              I like to get digital products done.
+            <h1 className="text-xl font-semi-bold tracking-tight align-middle text-zinc-500 md:text-4xl">
+              Software Developer & Product Designer.
             </h1>
-            <button
-              onClick={scrollToCards}
-              className="rounded-full bg-white/50 backdrop-blur-md ml-4 border align-middle border-gray-200   w-8 h-8"
-            >
-              <FontAwesomeIcon icon={faArrowDown} />
-            </button>
+            <div>
+              <button
+                onClick={scrollToCards}
+                className="flex justify-center items-center rounded-full bg-white/50 backdrop-blur-md ml-4 border align-middle border-gray-200 md:w-7 md:h-7 w-6 h-6"
+              >
+                <LucideChevronDown />
+              </button>
+            </div>
           </div>
         </div>
 
-        <div className="flex mt-0 mb justify-center"></div>
+        <div className="flex pt-80 md:pt-42 justify-center"></div>
 
-        <div className="w-full h-px bg-zinc-800" ref={cardsSectionRef} />
+        <div
+          className="w-full h-px mt-80 md:mt-0 bg-zinc-800"
+          ref={cardsSectionRef}
+        />
 
-        <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2  ">
+        <div className="grid grid-cols-1 gap-8 mt-80 mx-auto lg:grid-cols-2  ">
           <Card>
             <Link href={`/${featured.slug}`}>
-              <article className="relative w-full h-full md:p-8 cursor-fancy">
+              <article className="relative w-full h-full md:p-8 sm:p-8 p-4 cursor-fancy">
                 <div className="flex items-center justify-between ">
                   <div className="text-sm text-sky-400">
                     {featured.date ? (

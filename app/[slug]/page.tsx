@@ -31,14 +31,14 @@ export default async function PostPage({ params }: Props) {
 	
 
 	return (
-		<div className="bg-zinc-50 min-h-screen">
-			<Header project={project}  />
-			<ReportView slug={project.slug} />
-		<div className="mb-12">
-			<article className="px-4 mx-auto prose prose-zinc prose-quoteless">
-				<Mdx code={project.body.code} />
-			</article>
-		</div>
-		</div>
-	);
+    <div className="bg-zinc-50 min-h-screen">
+      <Header project={project} />
+      <ReportView slug={project.slug} />
+      <div className="mb-12">
+        <article className="px-4 sm:p-8 mx-auto prose prose-zinc prose-quoteless">
+          <Mdx code={project.body.code} />
+        </article>
+      </div>
+    </div>
+  );
 }
