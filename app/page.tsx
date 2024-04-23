@@ -57,7 +57,7 @@ export default async function ProjectsPage() {
             <h1 className="text-xl font-semi-bold tracking-tight align-middle text-zinc-500 md:text-4xl">
               Software Developer & Product Designer.
             </h1>
-            <div>
+            <div onClick={scrollToCards}>
               <button
                 onClick={scrollToCards}
                 className="flex justify-center items-center rounded-full bg-white/50 backdrop-blur-md ml-4 border align-middle border-gray-200 md:w-7 md:h-7 w-6 h-6"
