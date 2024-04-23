@@ -36,18 +36,15 @@ export default async function ProjectsPage() {
         new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
         new Date(a.date ?? Number.POSITIVE_INFINITY).getTime()
     );
-  const cardsSectionRef = useRef<HTMLDivElement>(null);
-  const scrollToCards = (event: any) => {
-    
-      event.preventDefault();
-    
-    if (cardsSectionRef.current) {
-      cardsSectionRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
+  
+const scrollToMain = () => {
+  console.log('scroll')
+  window.scrollTo({
+    top: 1000,
+    behavior: "smooth",
+  });
+};
+  
   return (
     <div className="relative">
       <div className="px-6 pt-22 mx-auto pt-12 space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
@@ -59,14 +56,13 @@ export default async function ProjectsPage() {
             <h1 className="text-xl font-semi-bold tracking-tight align-middle text-zinc-500 md:text-4xl">
               Software Developer & Product Designer.
             </h1>
-            <div onClick={scrollToCards}>
-              <button
-                onClick={(event) => scrollToCards(event)}
-                className="flex justify-center items-center rounded-full bg-white/50 backdrop-blur-md ml-4 border align-middle border-gray-200 md:w-7 md:h-7 w-6 h-6"
-              >
-                <LucideChevronDown />
-              </button>
-            </div>
+
+            <button
+              onClick={() => scrollToMain()}
+              className="flex justify-center items-center rounded-full bg-white/50 backdrop-blur-md ml-4 border align-middle border-gray-200 md:w-7 md:h-7 w-6 h-6"
+            >
+              <LucideChevronDown />
+            </button>
           </div>
         </div>
 
@@ -75,7 +71,7 @@ export default async function ProjectsPage() {
         <div className="w-full h-px mt-80 md:mt-0 bg-zinc-800" />
 
         <div
-          ref={cardsSectionRef}
+          id="mainPage"
           className="grid grid-cols-1 gap-8 mt-80 mx-auto lg:grid-cols-2  "
         >
           <Card>

@@ -61,17 +61,21 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
-			<head>
-				<Analytics />
-			</head>
-			<body
-				className={`bg-zinc-50 ${
-					process.env.NODE_ENV === "development" ? "debug-screens" : undefined
-				}`}
-			>
-				{children}
-			</body>
-		</html>
-	);
+    <html
+    	style={{ scrollBehavior: "smooth" }}
+    	lang="en"
+    	className={[inter.variable, calSans.variable].join(" ") }
+    >
+      <head>
+        <Analytics />
+      </head>
+      <body
+        className={`bg-zinc-50 ${
+          process.env.NODE_ENV === "development" ? "debug-screens" : undefined
+        }`}
+      >
+        {children}
+      </body>
+    </html>
+  );
 }
