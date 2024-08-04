@@ -6,19 +6,19 @@ import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "chronark.com",
-    template: "%s | chronark.com",
+    default: "sossy.com",
+    template: "%s | sossy.com",
   },
   description: "Co-founder of unkey.dev and founder of planetfall.io",
   openGraph: {
-    title: "chronark.com",
+    title: "sossy.com",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
-    url: "https://chronark.com",
-    siteName: "chronark.com",
+      "Founder, Master Pilot & Lead Photographer for Path to Ground LLC",
+    url: "https://sossy.com",
+    siteName: "sossy.com",
     images: [
       {
-        url: "https://chronark.com/og.png",
+        url: "https://sossy.com/og.png",
         width: 1920,
         height: 1080,
       },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Chronark",
+    title: "Path to Ground",
     card: "summary_large_image",
   },
   icons: {
