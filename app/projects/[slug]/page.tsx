@@ -41,7 +41,8 @@ export default async function PostPage({ params }: Props) {
       <ReportView slug={project.slug} />
 
       <article className="px-4 py-12 mx-auto prose prose-zinc prose-quoteless">
-        <Mdx code={project.body.code} />
+        {/* <Mdx code={project.body.code} /> */}
+        {/* Make a children component if ever you do want to add additional info per project */}
       </article>
     </div>
   );

@@ -11,6 +11,7 @@ const redis = Redis.fromEnv();
 
 export const revalidate = 60;
 export default async function ProjectsPage() {
+  
   const views = (
     await redis.mget<number[]>(
       ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
@@ -21,7 +22,7 @@ export default async function ProjectsPage() {
   }, {} as Record<string, number>);
 
   const featured = allProjects.find((project) => project.slug === "unkey")!;
-  const top2 = allProjects.find((project) => project.slug === "planetfall")!;
+  const top2 = allProjects.find((project) => project.slug === "scf")!;
   const top3 = allProjects.find((project) => project.slug === "highstorm")!;
   const sorted = allProjects
     .filter((p) => p.published)
@@ -37,7 +38,7 @@ export default async function ProjectsPage() {
         new Date(a.date ?? Number.POSITIVE_INFINITY).getTime(),
     );
 
-  return (
+      return (
     <div className="relative pb-16">
       <Navigation />
       <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
@@ -94,7 +95,7 @@ export default async function ProjectsPage() {
           </Card>
 
           <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
-            {[top2, top3].map((project) => (
+            {[top2].map((project) => (
               <Card key={project.slug}>
                 <Article project={project} views={views[project.slug] ?? 0} />
               </Card>
