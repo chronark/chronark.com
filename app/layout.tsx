@@ -2,23 +2,25 @@ import "../global.css";
 import { Inter } from "@next/font/google";
 import LocalFont from "@next/font/local";
 import { Metadata } from "next";
-import { Analytics } from "./components/analytics";
+// import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.morenikejipopoola.com"),
   title: {
-    default: "chronark.com",
-    template: "%s | chronark.com",
+    default: "morenikejipopoola.com",
+    template: "%s | morenikejipopoola.com",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description:
+    "Elijah Popoola, an experienced software engineer who loves open source and creating thoughtful, well-designed software. Skilled in C#, Python, C++, Java, TypeScript/JavaScript, and SQL/NoSQL databases.",
   openGraph: {
-    title: "chronark.com",
+    title: "morenikejipopoola.com",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
-    url: "https://chronark.com",
-    siteName: "chronark.com",
+      "Elijah Popoola, an experienced software engineer who loves open source and creating thoughtful, well-designed software.",
+    url: "https://morenikejipopoola.com",
+    siteName: "morenikejipopoola.com",
     images: [
       {
-        url: "https://chronark.com/og.png",
+        url: "https://morenikejipopoola.com/og-image.png",
         width: 1920,
         height: 1080,
       },
@@ -38,11 +40,8 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Chronark",
+    title: "Elijah Popoola",
     card: "summary_large_image",
-  },
-  icons: {
-    shortcut: "/favicon.png",
   },
 };
 const inter = Inter({
@@ -63,11 +62,24 @@ export default function RootLayout({
   return (
     <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
       <head>
-        <Analytics />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-32x32.png"
+          sizes="32x32"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-16x16.png"
+          sizes="16x16"
+        />
+        {/* <Analytics /> */}
       </head>
       <body
-        className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
-          }`}
+        className={`bg-black ${
+          process.env.NODE_ENV === "development" ? "debug-screens" : undefined
+        }`}
       >
         {children}
       </body>

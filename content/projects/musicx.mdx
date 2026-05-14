@@ -1,0 +1,71 @@
+---
+title: musicX
+description: Flexible backend application built with Java Spring Boot, backed by a PostgreSQL database, using GraphQL to query and manage tracks, artists, albums, and genres through a single endpoint.
+date: "2026-03-13"
+published: true
+repository: "/kejiahp/musicX"
+---
+
+A Backend application built with Java Spring Boot, backed by a PostgreSQL database, using GraphQL to query and manage tracks, artists, albums, and genres through a single endpoint. It delivers clean relationships, efficient querying, and a scalable architecture for modern music applications.
+
+> **Quick side-note**: I'm just managing the metadata, actual music assets will be on Youtube.
+
+## Libraries Used
+
+**Core Stack:**
+
+- Spring Boot 4.0.3 with Spring Security for authentication
+- Spring Data JPA for database interaction
+- PostgreSQL as the relational database
+- Spring Boot GraphQL starter for GraphQL endpoint setup
+- GraphQL Java Extended Scalars for custom types (Date, URL, UUID, Instant)
+- JJWT (JSON Web Token) library for JWT generation and validation
+- BCrypt for password hashing
+- Flyway Core for schema versioning and migrations
+- Lombok for reducing boilerplate code
+- Spring Boot GraphQL Test starter with GraphQlTester
+- Spring Security Test for authentication testing
+- Mockito for mocking service dependencies
+- JUnit 5 for test execution
+
+## Build & Deployment
+
+### Build System (Gradle Kotlin DSL)
+
+**Key Plugins**:
+
+- `jacoco`: Code coverage reporting
+- `io.spring.dependency-management`: Consistent Spring library versions
+
+**Tasks**:
+
+```bash
+./gradlew clean build          # Full build with tests
+./gradlew bootRun              # Start development server
+./gradlew bootJar              # Package production JAR
+./gradlew test                 # Execute test suite
+```
+
+### Development Workflow
+
+**Setup & First Run**:
+
+```bash
+# Start PostgreSQL
+docker-compose up -d
+
+# Run migrations
+./gradlew bootRun --args="migrate"
+
+# (RECOMMENDED) Seed with example data
+./gradlew bootRun --args="migrate seed"
+
+# Start server in development mode
+./gradlew bootRun
+```
+
+**GraphQL IDE Access**:
+
+- Navigate to `http://localhost:8080/graphiql`
+- Interactive query builder and documentation explorer
+- Real-time query/mutation testing against live server

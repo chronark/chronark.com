@@ -4,24 +4,32 @@ import { allProjects } from "contentlayer/generated";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { Article } from "./article";
-import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 export default async function ProjectsPage() {
-  const redis = Redis.fromEnv();
-  const views = (
-    await redis.mget<number[]>(
-      ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
-    )
-  ).reduce((acc, v, i) => {
-    acc[allProjects[i].slug] = v ?? 0;
-    return acc;
-  }, {} as Record<string, number>);
+  // Fetch pageview counts from MongoDB API
+  const slugs = allProjects.map((p) => p.slug);
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"}/api/pageviews/get?${slugs.map((s) => `slugs=${s}`).join("&")}`,
+    { cache: "no-store" },
+  );
 
-  const featured = allProjects.find((project) => project.slug === "unkey")!;
-  const top2 = allProjects.find((project) => project.slug === "planetfall")!;
-  const top3 = allProjects.find((project) => project.slug === "highstorm")!;
+  let views: Record<string, number> = {};
+  if (response.ok) {
+    views = await response.json();
+  } else {
+    // Fallback to zeros if fetch fails
+    slugs.forEach((slug) => {
+      views[slug] = 0;
+    });
+  }
+
+  const featured = allProjects.find((project) => project.slug === "passlock")!;
+  const top2 = allProjects.find(
+    (project) => project.slug === "recommendation-system",
+  )!;
+  const top3 = allProjects.find((project) => project.slug === "musicx-mobile")!;
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(
@@ -45,7 +53,7 @@ export default async function ProjectsPage() {
             Projects
           </h2>
           <p className="mt-4 text-zinc-400">
-            Some of the projects are from work and some are on my own time.
+            An overview of some of my personal projects.
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />

@@ -1,0 +1,105 @@
+---
+title: passlock
+description: A C++ CLI application to securely manage usernames and passwords for multiple users. It uses OpenSSL for AES-128 encryption, SHA256 hashing and QLiteCpp for secure credential storage.
+date: "2025-10-10"
+published: true
+repository: "kejiahp/passlock"
+---
+
+A command-line(CLI)-based multi-user password manager in C/C++ using OpenSSL for AES-128 encryption, SHA256 hashing for authentication and SQLiteCpp for secure credential storage, resulting in a lightweight tool that safeguarded sensitive data with industry-standard cryptography.
+
+## Getting Started
+
+This project was setup using [CMake, a cross-platform build tool](https://cmake.org/) on a Mac computer system.
+Below are instructions to build and run the project on your local machine.
+
+### Git:
+
+Use git to clone the repository. Then init and update submodule "SQLiteCpp".
+
+```sh
+git clone https://github.com/kejiahp/passlock.git
+cd passlock
+git submodule init
+git submodule update
+```
+
+### CMake Installation:
+
+First check if CMake is installed on the system.
+
+```sh
+cmake --version
+```
+
+If you see a message saying `cmake is not recognized` or something similar. Follow the steps below to install CMake on your computer.
+
+### CMake Installation MacOS and Windows:
+
+#### Install CMake MacOS
+
+```sh
+brew install cmake # MacOS
+```
+
+#### Install CMake Windows
+
+Follow this URL for Windows: [https://cmake.org/download/](https://cmake.org/download/)
+
+### OpenSSL Installation MacOS and Windows
+
+The project uses OpenSSL for hashing and encryption/decryption of credentials.
+
+Check if OpenSSL is already installed
+
+```sh
+openssl --version # both MacOS and Windows
+```
+
+#### Install OpenSSL MacOS
+
+```sh
+brew install openssl
+```
+
+After installation, if openssl is still not found, ensure shell configuration file (.zshrc, .bash_profile, etc) is updated.
+
+#### Install OpenSSL Windows
+
+Follow this link [How to install OpenSSL (3.0.1) on Windows 10 (64-bit)](https://youtu.be/jrHnP6Gazf0?si=E7tmClrxQrJZ7h6h). Installing versions `3.5.2` and above should be fine.
+
+#### Build Project and Run the executable
+
+Follow this steps once CMake and OpenSSL have been installed, do the following:
+
+- Go to the root directory of the project.
+
+- Within [./src/db/seed/seed.cpp; line 46](https://github.com/kejiahp/passlock/blob/549a1c60a001623a495cb2b55b0ece3f1a0f409a/src/db/seed/seed.cpp#L43), initialize the `adminSeedEmail` and `adminSeedPassword` variables with an appropriate email and password. These are required to seed the database with an admin user. The default admin email and password are `admin@gmail.com` and `passLockAdmin12345@` respectively.
+
+- Execute the build scripts:
+
+  ```sh
+  sh build.sh #MacOS
+
+  ./winbuild.bat # Windows Powershell
+
+  winbuild.bat # Windows Command Prompt (CMD)
+  ```
+
+- Windows Powershell and CMD Emoji Configuration (_OPTIONAL_)
+
+  At times windows terminals need needs extra configurations allowing emojis to be displayed properlly the commands below help with that.
+
+  ```sh
+  [Console]::OutputEncoding = [System.Text.Encoding]::UTF8 # Windows Powershell
+
+  chcp 65001 # Windows Command Prompt (CMD)
+  ```
+
+- Run the executable:
+
+  ```sh
+  ./build/src/passlock # MacOS
+
+  .\build\src\Release\passlock.exe # Windows
+  ```
