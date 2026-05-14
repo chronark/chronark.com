@@ -1,41 +1,17 @@
 import mongoose from "mongoose";
 
-let cached = global.mongoose;
-
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
-}
-
-export async function connect() {
-  if (cached.conn) {
-    return cached.conn;
-  }
-
-  if (!cached.promise) {
-    const opts = {
-      bufferCommands: false,
-    };
-
-    cached.promise = mongoose
-      .connect(process.env.MONGODB_URI || "", opts)
-      .then((mongoose) => {
-        return mongoose;
-      });
-  }
-
-  try {
-    cached.conn = await cached.promise;
-  } catch (e) {
-    cached.promise = null;
-    throw e;
-  }
-
-  return cached.conn;
-}
-
-declare global {
-  var mongoose: {
-    conn: typeof mongoose | null;
-    promise: Promise<typeof mongoose> | null;
-  };
-}
+// mongoose.set('strictQuery', true);
+export const connect = async () => {
+	try {
+		const uri = process.env.MONGODB_URI as string;
+		if (!uri) {
+			throw new Error("Please define the MONGODB_URI environment variable");
+		}
+		await mongoose.connect(uri);
+		// console.log("connected to DB");
+		return mongoose;
+	} catch (e) {
+		console.log("could not connect to DB");
+		console.error(e);
+	}
+};
