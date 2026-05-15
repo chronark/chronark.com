@@ -12,7 +12,6 @@ const experienceList = [
       "Contributed to building a distributed microservices platform for PhD supervisor allocation using Python, FastAPI, PostgreSQL, pgvector, Docker, SQLAlchemy, Redis caching, React/TypeScript, achieving semantic-matching accuracy.",
       "Assisted in migrating non-core services to C# ASP.NET Core (.NET 9), ensuring backward compatibility with the Python LLM backend and strengthening overall service reliability.",
       "Automated proposal analysis by integrating the OpenAI(ChatGPT) API with prompt-engineering techniques, removing hours of manual review per intake cycle and improving consistency.",
-      "Helped design and run end-to-end (E2E) tests with Playwright, gaining experience in simulating user interactions to identify bugs before deployment.",
     ],
   },
   {
