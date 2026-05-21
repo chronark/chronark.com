@@ -6,3 +6,9 @@ overrides:
   '@opentelemetry/sdk-trace-base': 1.13.0
   '@opentelemetry/sdk-trace-node': 1.13.0
   '@opentelemetry/semantic-conventions': 1.13.0
+
+onlyBuiltDependencies:
+  - contentlayer
+  - esbuild
+  - protobufjs
+  - rome
