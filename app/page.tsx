@@ -3,7 +3,7 @@ import React from "react";
 import Particles from "./components/particles";
 
 const navigation = [
-  { name: "Projects", href: "/projects" },
+  // { name: "Projects", href: "/projects" }, quitar esto como comentario para que aparezca "project"
   { name: "Contact", href: "/contact" },
 ];
 
@@ -29,7 +29,7 @@ export default function Home() {
         quantity={100}
       />
       <h1 className="py-3.5 px-0.5 z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
-        chronark
+        Jose Ramon
       </h1>
 
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
@@ -41,8 +41,8 @@ export default function Home() {
             href="https://unkey.com"
             className="underline duration-500 hover:text-zinc-300"
           >
-            unkey.com
-          </Link>, the developer platform for modern APIs. Deploy APIs instantly, route traffic through global gateways, and understand usage in one place.
+            things with technology
+          </Link>, to improve my life and help others do the same.
         </h2>
       </div>
     </div>

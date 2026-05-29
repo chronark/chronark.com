@@ -6,19 +6,19 @@ import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "chronark.com",
-    template: "%s | chronark.com",
+    default: "Jose Ramon",
+    template: "%s | jseramn.tech",
   },
-  description: "Co-founder of unkey.com",
+  description: "Visionary Tech-builder",
   openGraph: {
-    title: "chronark.com",
+    title: "jseramn.tech",
     description:
-      "Co-founder of unkey.com",
-    url: "https://chronark.com",
-    siteName: "chronark.com",
+      "Visionary Tech-builder",
+    url: "https://jseramn.tech",
+    siteName: "jseramn.tech",
     images: [
       {
-        url: "https://chronark.com/og.png",
+        url: "https://jseramn.tech/og.png",
         width: 1920,
         height: 1080,
       },
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Chronark",
+    title: "Jose Ramon",
     card: "summary_large_image",
   },
   icons: {
@@ -51,7 +51,7 @@ const inter = Inter({
 });
 
 const calSans = LocalFont({
-  src: "../public/fonts/CalSans-SemiBold.ttf",
+  src: "../public/fonts/Geist-SemiBold.ttf",
   variable: "--font-calsans",
 });
 

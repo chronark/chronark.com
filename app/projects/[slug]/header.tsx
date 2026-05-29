@@ -1,5 +1,5 @@
 "use client";
-import { ArrowLeft, Eye, Github, Twitter } from "lucide-react";
+import { ArrowLeft, Eye, Github } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -67,14 +67,24 @@ export const Header: React.FC<Props> = ({ project, views }) => {
 								views,
 							)}
 						</span>
-						<Link target="_blank" href="https://twitter.com/chronark_">
-							<Twitter
+						<Link target="_blank" href="https://x.com/jseramn_">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								strokeWidth="2"
+								strokeLinecap="round"
+								strokeLinejoin="round"
 								className={`w-6 h-6 duration-200 hover:font-medium ${
 									isIntersecting
 										? " text-zinc-400 hover:text-zinc-100"
 										: "text-zinc-600 hover:text-zinc-900"
 								} `}
-							/>
+							>
+								<path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+								<path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+							</svg>
 						</Link>
 						<Link target="_blank" href="https://github.com/chronark">
 							<Github
