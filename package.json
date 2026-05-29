@@ -13,6 +13,7 @@
     "@next/font": "13.5.11",
     "@next/mdx": "13.5.11",
     "@upstash/redis": "1.36.4",
+    "@vercel/analytics": "^2.0.1",
     "contentlayer": "0.3.4",
     "framer-motion": "10.18.0",
     "lucide-react": "0.284.0",
