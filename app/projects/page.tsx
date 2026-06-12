@@ -9,19 +9,35 @@ import { Eye } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 export default async function ProjectsPage() {
-  const redis = Redis.fromEnv();
-  const views = (
-    await redis.mget<number[]>(
+  let views: Record<string, number> = {};
+  try {
+    const redis = Redis.fromEnv();
+    const vals = await redis.mget<number[]>(
       ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
-    )
-  ).reduce((acc, v, i) => {
-    acc[allProjects[i].slug] = v ?? 0;
-    return acc;
-  }, {} as Record<string, number>);
+    );
+    views = vals.reduce((acc, v, i) => {
+      acc[allProjects[i].slug] = v ?? 0;
+      return acc;
+    }, {} as Record<string, number>);
+  } catch (err) {
+    // If Redis isn't configured or URL parsing fails, log and fall back to zeros.
+    // This prevents a crash on missing/invalid UPSTASH env vars during local dev.
+    // eslint-disable-next-line no-console
+    console.warn("Redis unavailable, falling back to zero pageviews:", err);
+    views = allProjects.reduce((acc, p) => {
+      acc[p.slug] = 0;
+      return acc;
+    }, {} as Record<string, number>);
+  }
 
   const featured = allProjects.find((project) => project.slug === "unkey")!;
   const top2 = allProjects.find((project) => project.slug === "planetfall")!;
   const top3 = allProjects.find((project) => project.slug === "highstorm")!;
+  const topOverrides: Record<string, { title?: string; external?: string }> = {
+    unkey: { title: "medlogacademy.com", external: "https://medlogacademy.com" },
+    planetfall: { title: "Luna Music player (lunamusic.com)", external: "https://lunamusic.com" },
+    highstorm: { title: "hospitalmanagement.app", external: "https://hospitalmanagement.app" },
+  };
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(
@@ -52,50 +68,110 @@ export default async function ProjectsPage() {
 
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
           <Card>
-            <Link href={`/projects/${featured.slug}`}>
-              <article className="relative w-full h-full p-4 md:p-8">
-                <div className="flex items-center justify-between gap-2">
-                  <div className="text-xs text-zinc-100">
-                    {featured.date ? (
-                      <time dateTime={new Date(featured.date).toISOString()}>
-                        {Intl.DateTimeFormat(undefined, {
-                          dateStyle: "medium",
-                        }).format(new Date(featured.date))}
-                      </time>
-                    ) : (
-                      <span>SOON</span>
-                    )}
+            {topOverrides[featured.slug]?.external ? (
+              <a
+                href={topOverrides[featured.slug]!.external}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <article className="relative w-full h-full p-4 md:p-8">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="text-xs text-zinc-100">
+                      {featured.date ? (
+                        <time dateTime={new Date(featured.date).toISOString()}>
+                          {Intl.DateTimeFormat(undefined, {
+                            dateStyle: "medium",
+                          }).format(new Date(featured.date))}
+                        </time>
+                      ) : (
+                        <span>SOON</span>
+                      )}
+                    </div>
+                    <span className="flex items-center gap-1 text-xs text-zinc-500">
+                      <Eye className="w-4 h-4" />{" "}
+                      {Intl.NumberFormat("en-US", { notation: "compact" }).format(
+                        views[featured.slug] ?? 0,
+                      )}
+                    </span>
                   </div>
-                  <span className="flex items-center gap-1 text-xs text-zinc-500">
-                    <Eye className="w-4 h-4" />{" "}
-                    {Intl.NumberFormat("en-US", { notation: "compact" }).format(
-                      views[featured.slug] ?? 0,
-                    )}
-                  </span>
-                </div>
 
-                <h2
-                  id="featured-post"
-                  className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
-                >
-                  {featured.title}
-                </h2>
-                <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
-                  {featured.description}
-                </p>
-                <div className="absolute bottom-4 md:bottom-8">
-                  <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
-                    Read more <span aria-hidden="true">&rarr;</span>
+                  <h2
+                    id="featured-post"
+                    className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
+                  >
+                    {topOverrides[featured.slug]?.title ?? featured.title}
+                  </h2>
+                  <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
+                    {featured.description}
                   </p>
-                </div>
-              </article>
-            </Link>
+                  <div className="absolute bottom-4 md:bottom-8">
+                    <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
+                      Read more <span aria-hidden="true">→</span>
+                    </p>
+                  </div>
+                </article>
+              </a>
+            ) : (
+              <Link href={`/projects/${featured.slug}`}>
+                <article className="relative w-full h-full p-4 md:p-8">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="text-xs text-zinc-100">
+                      {featured.date ? (
+                        <time dateTime={new Date(featured.date).toISOString()}>
+                          {Intl.DateTimeFormat(undefined, {
+                            dateStyle: "medium",
+                          }).format(new Date(featured.date))}
+                        </time>
+                      ) : (
+                        <span>SOON</span>
+                      )}
+                    </div>
+                    <span className="flex items-center gap-1 text-xs text-zinc-500">
+                      <Eye className="w-4 h-4" />{" "}
+                      {Intl.NumberFormat("en-US", { notation: "compact" }).format(
+                        views[featured.slug] ?? 0,
+                      )}
+                    </span>
+                  </div>
+
+                  <h2
+                    id="featured-post"
+                    className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
+                  >
+                    {featured.title}
+                  </h2>
+                  <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
+                    {featured.description}
+                  </p>
+                  <div className="absolute bottom-4 md:bottom-8">
+                    <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
+                      Read more <span aria-hidden="true">→</span>
+                    </p>
+                  </div>
+                </article>
+              </Link>
+            )}
           </Card>
 
           <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
             {[top2, top3].map((project) => (
               <Card key={project.slug}>
-                <Article project={project} views={views[project.slug] ?? 0} />
+                {topOverrides[project.slug]?.external ? (
+                  <a
+                    href={topOverrides[project.slug]!.external}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <Article
+                      project={{ ...project, title: topOverrides[project.slug]?.title ?? project.title }}
+                      views={views[project.slug] ?? 0}
+                    />
+                  </a>
+                ) : (
+                  <Article project={project} views={views[project.slug] ?? 0} />
+                )}
               </Card>
             ))}
           </div>

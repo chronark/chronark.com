@@ -22,9 +22,15 @@ export default async function PostPage({ params }: Props) {
     notFound();
   }
 
-  const redis = Redis.fromEnv();
-  const views =
-    (await redis.get<number>(["pageviews", "projects", slug].join(":"))) ?? 0;
+  let views = 0;
+  try {
+    const redis = Redis.fromEnv();
+    views = (await redis.get<number>(["pageviews", "projects", slug].join(":"))) ?? 0;
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.warn("Redis unavailable for project page, falling back to 0 views:", err);
+    views = 0;
+  }
 
   return (
     <div className="bg-zinc-50 min-h-screen">
