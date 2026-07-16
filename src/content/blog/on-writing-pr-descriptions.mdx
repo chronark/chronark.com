@@ -1,0 +1,65 @@
+---
+title: On writing PR descriptions
+description: PR descriptions are primarily for the reviewer, not the author. Code is cheap. Understanding isn't.
+date: 2026-07-15
+---
+
+Hey team,
+
+We're all producing more code than ever, meaning there's more code to review than ever.
+
+We're also building critical infrastructure for our customers to rely on to build their products.
+
+As controversial as that seems to be these days, we will continue to [read the code](https://x.com/mitchellh/status/2072738025344565262)...
+
+Because reviewing is becoming the new bottleneck, we need to optimize how we produce code for reviews. This includes many things, but let's focus on PR descriptions.
+
+## You Know Too Much
+
+You just did the work. You know what the code should do. You are not the audience!
+
+LLM-generated descriptions are incredible at producing a convincing-looking summary of random facts about the PR. To you, the author, these all look legit and make sense because you have all the context.
+
+- You unconsciously fill in missing context.
+- You fail to distinguish important information from noise. As long as it's not wrong, you don't stop to consider whether it should be improved, rewritten, or removed.
+- You may see a complete list of changes and mistake it for an explanation. Even if every fact is useful on its own, the description can still fail to connect them into a coherent story: what problem you're solving, which decisions you made, and how the changes lead to the intended outcome.
+
+A reviewer, however, goes into the review with zero or near-zero context and needs the PR description to get them up to speed, not only on what changed, but especially what the goal was and why you did it.
+
+PR descriptions are primarily for the reviewer, not the author.
+
+It's usually not too hard to figure out *what* changed, you can just look at the code. But figuring out why something was done, or why a more obvious solution wasn't chosen, is usually impossible to tell from the code diff alone.
+
+## Writing Is the First Review
+
+Turning your mental model into complete sentences forces you to make your assumptions and reasoning explicit, which may reveal problems.
+
+- You can't clearly explain why you chose that approach. Maybe the LLM did a bit too much thinking and you just followed blindly? Chances are there's a better way to architect the solution
+- You notice an assumption you haven't validated? Our product and team have grown over the years and it's hard to hold all that context in your head. There are plenty of assumptions we make each day, that might not be accurate anymore.
+- You discover an edge case you didn't see before.
+- You realise the change is solving a slightly different problem.
+
+At the end of the day, this is your code and you are responsible for it. That means you need to understand it better than anyone, and writing about it is one of the easiest ways to find problems.
+
+## Slow Down, Ship Faster
+
+Obviously, writing a PR description by hand is slower than asking an LLM to "write a PR description, make no mistakes." But optimizing for your time means optimizing the wrong part of the process.
+
+You already have the context and only need to write it down once. Without it, every reviewer has to reconstruct that context independently from the diff, ask questions, and wait for answers.
+
+A few extra minutes from you can save much more time across the team, especially when several people are reviewing the same change. Slowing down before requesting review helps everyone move faster afterward. It gets your PR merged faster and frees you up to ship more.
+
+## Engineer The Review
+
+A good PR description gives reviewers the mental model they need before they open the diff. It doesn't replace reading the code. It tells them what they're looking at and where to direct their attention.
+
+Before opening the diff, a reviewer should understand:
+
+- What are you trying to achieve, and why?
+- What approach did you choose?
+- Which decisions, constraints, or trade-offs matter?
+- Where should they focus their attention?
+
+Not every PR needs an essay. It just needs enough context for someone else to evaluate the change without reconstructing its intent from scratch. The description shouldn't narrate the diff, the code already does that.
+
+Code is cheap. Understanding isn't.

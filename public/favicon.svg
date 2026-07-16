@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    text { font: 600 20px ui-sans-serif, system-ui, sans-serif; fill: #1a1a1a; }
+    @media (prefers-color-scheme: dark) { text { fill: #e4e4e4; } }
+  </style>
+  <text x="16" y="23" text-anchor="middle">at</text>
+</svg>
