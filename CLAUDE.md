@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture
 
-Minimal personal blog built with Astro 5 and MDX. Fully static; the only client-side JavaScript is the tiny inline theme toggle in `Base.astro`. Design is "midnight": near-black background with soft gray text (dark is the lead scheme, light is a same-voice counterpart), hairline borders, mono uppercase micro-labels for section headers and dates, dashed-leader post list, a faint violet radial glow at the top (dark mode only), and a desaturated violet-blue accent reserved for hover/selection. Single centered 620px column, 14px system sans, no nav bar.
+Minimal personal blog built with Astro and MDX. Fully static; the only client-side JavaScript is the tiny inline theme toggle in `Base.astro` and Astro's hover-prefetch script (post links on the homepage carry `data-astro-prefetch`). Design is "midnight": near-black background with soft gray text (dark is the lead scheme, light is a same-voice counterpart), hairline borders, mono uppercase micro-labels for section headers and dates, dashed-leader post list, a faint violet radial glow at the top (dark mode only), and a desaturated violet-blue accent reserved for hover/selection. Single centered 620px column, 14px system sans, no nav bar.
 
 **Theming:** all design tokens are CSS custom properties on `:root` in `src/styles/global.css`. Default follows `prefers-color-scheme`; the toggle sets `data-theme="light|dark"` on `<html>` (persisted in localStorage, applied pre-paint in `<head>`). The light token block exists twice (media query + `[data-theme="light"]`) — keep both in sync.
 

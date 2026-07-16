@@ -1,6 +1,6 @@
 # chronark.com
 
-My personal site and blog. Fully static, one tiny script for the theme toggle, nothing else running in the browser.
+My personal site and blog. Fully static, a tiny script for the theme toggle and hover-prefetching, nothing else running in the browser.
 
 Built with [Astro](https://astro.build) and MDX.
 

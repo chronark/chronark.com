@@ -16,7 +16,6 @@ const formatDate = (date: Date) =>
 
 <Base title="Andreas Thomas">
   <section>
-    <h1>Andreas Thomas</h1>
     <p class="intro">
       I'm the CTO and co-founder of <a href="https://unkey.com">unkey.com</a>, the developer
       platform for modern APIs. Deploy APIs instantly, route traffic through
@@ -30,7 +29,7 @@ const formatDate = (date: Date) =>
       {
         posts.map((post) => (
           <li>
-            <a href={`/blog/${post.id}`}>
+            <a href={`/blog/${post.id}`} data-astro-prefetch>
               <span class="post-title">{post.data.title}</span>
               <span class="post-rule" aria-hidden="true" />
               <time datetime={post.data.date.toISOString()} class="mono-date">

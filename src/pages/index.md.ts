@@ -19,7 +19,7 @@ export const GET: APIRoute = async () => {
     )
     .join("\n");
 
-  const md = `# Andreas Thomas\n\n${intro}\n\n## Writing\n\n${list}\n`;
+  const md = `${intro}\n\n## Writing\n\n${list}\n`;
   return new Response(md, {
     headers: { "Content-Type": "text/markdown; charset=utf-8" },
   });

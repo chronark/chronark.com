@@ -21,6 +21,7 @@ function externalLinks() {
 export default defineConfig({
   // override per environment (e.g. preview deployments) at build time
   site: process.env.SITE_URL ?? "https://chronark.com",
+  prefetch: true,
   integrations: [mdx()],
   markdown: {
     rehypePlugins: [externalLinks],
