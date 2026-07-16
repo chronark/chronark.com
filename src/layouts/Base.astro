@@ -1,0 +1,155 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "I'm building unkey.com, the developer platform for modern APIs. Deploy APIs instantly, route traffic through global gateways, and understand usage in one place.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={Astro.url} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Andreas Thomas"
+      href={new URL("rss.xml", Astro.site)}
+    />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <script is:inline>
+      const stored = localStorage.getItem("theme");
+      if (stored === "light" || stored === "dark") {
+        document.documentElement.dataset.theme = stored;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="glow" aria-hidden="true"></div>
+    <button id="theme-toggle" type="button" aria-label="Toggle color scheme">
+      <svg
+        class="icon-sun"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      >
+        <circle cx="12" cy="12" r="4"></circle>
+        <path
+          d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+        ></path>
+      </svg>
+      <svg
+        class="icon-moon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+    <slot />
+    <footer>
+      <a href="https://github.com/chronark">github</a>
+      <a href="https://x.com/chronark">x</a>
+      <a href="/rss.xml">rss</a>
+    </footer>
+  </body>
+</html>
+
+<style>
+  /* the one atmospheric accent: a faint glow bleeding in from the top */
+  .glow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      60% 38% at 50% -8%,
+      var(--glow),
+      transparent 70%
+    );
+  }
+
+  footer {
+    margin-top: 5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--hairline);
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  footer a {
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  footer a:hover {
+    color: var(--accent);
+  }
+
+  #theme-toggle {
+    position: absolute;
+    top: 1.35rem;
+    right: 1.5rem;
+    color: var(--text-dim);
+    background: none;
+    border: none;
+    padding: 0.4rem;
+    cursor: pointer;
+    transition: color 120ms ease;
+  }
+
+  #theme-toggle svg {
+    width: 15px;
+    height: 15px;
+    display: block;
+  }
+
+  #theme-toggle .icon-sun {
+    display: var(--icon-sun);
+  }
+
+  #theme-toggle .icon-moon {
+    display: var(--icon-moon);
+  }
+
+  #theme-toggle:hover {
+    color: var(--accent);
+  }
+
+  #theme-toggle:focus-visible {
+    outline: 1px solid var(--accent-outline);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+</style>
+
+<script is:inline>
+  document.getElementById("theme-toggle").addEventListener("click", () => {
+    const root = document.documentElement;
+    const current =
+      root.dataset.theme ||
+      (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+    const next = current === "light" ? "dark" : "light";
+    root.dataset.theme = next;
+    localStorage.setItem("theme", next);
+  });
+</script>

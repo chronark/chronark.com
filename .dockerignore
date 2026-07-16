@@ -1,8 +1,12 @@
-node_modules
-.next
 .git
-.gitignore
-*.md
-!README.md
+node_modules
+dist
+.astro
 .env
 .env.*
+Dockerfile
+.dockerignore
+README.md
+CLAUDE.md
+.claude
+.DS_Store

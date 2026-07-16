@@ -1,0 +1,59 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  });
+---
+
+<Base title={post.data.title} description={post.data.description}>
+  <nav>
+    <a href="/" class="mono-label">← home</a>
+  </nav>
+  <header class="article-head">
+    <h1>{post.data.title}</h1>
+    <time datetime={post.data.date.toISOString()} class="mono-date">
+      {formatDate(post.data.date)}
+    </time>
+  </header>
+  <article>
+    <Content />
+  </article>
+</Base>
+
+<style>
+  nav {
+    margin-bottom: 4.5rem;
+  }
+
+  nav a:hover {
+    color: var(--accent);
+  }
+
+  .article-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .article-head h1 {
+    margin: 0;
+    flex: 1;
+  }
+</style>

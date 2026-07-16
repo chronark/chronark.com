@@ -1,0 +1,113 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  });
+---
+
+<Base title="Andreas Thomas">
+  <section>
+    <h1>Andreas Thomas</h1>
+    <p class="intro">
+      I'm the CTO and co-founder of <a href="https://unkey.com">unkey.com</a>, the developer
+      platform for modern APIs. Deploy APIs instantly, route traffic through
+      global gateways, and understand usage in one place.
+    </p>
+  </section>
+
+  <section class="writing">
+    <h2 class="mono-label">Writing</h2>
+    <ul class="posts">
+      {
+        posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.id}`}>
+              <span class="post-title">{post.data.title}</span>
+              <span class="post-rule" aria-hidden="true" />
+              <time datetime={post.data.date.toISOString()} class="mono-date">
+                {formatDate(post.data.date)}
+              </time>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Base>
+
+<style>
+  .intro {
+    margin: 0;
+    max-width: 52ch;
+  }
+
+  .intro a {
+    text-decoration: underline;
+    text-decoration-color: var(--underline);
+    text-underline-offset: 3px;
+  }
+
+  .intro a:hover {
+    text-decoration-color: var(--accent-underline);
+  }
+
+  .writing {
+    margin-top: 4.5rem;
+  }
+
+  .mono-label {
+    margin: 0 0 1.25rem;
+  }
+
+  .posts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .posts a {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.7rem 0;
+    color: var(--text);
+  }
+
+  .post-title {
+    color: var(--text-strong);
+    font-weight: 450;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .posts a:hover .post-title {
+    color: var(--accent);
+  }
+
+  .post-rule {
+    flex: 1;
+    border-top: 1px dashed var(--hairline);
+    transform: translateY(-0.2em);
+  }
+
+  @media (max-width: 480px) {
+    .posts a {
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .post-rule {
+      display: none;
+    }
+  }
+</style>

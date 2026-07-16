@@ -5,31 +5,25 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Build & Development Commands
 
 - `pnpm dev` — Start development server
-- `pnpm build` — Production build (includes Contentlayer content generation)
-- `pnpm start` — Start production server
-- `pnpm fmt` — Format and lint with Rome (`rome check --apply-unsafe` + `rome format --write`)
+- `pnpm build` — Static production build to `dist/`
+- `pnpm preview` — Preview the production build
 
 ## Architecture
 
-Next.js 13 App Router portfolio site using Contentlayer for MDX content, Tailwind CSS for styling, and Upstash Redis for pageview tracking.
+Minimal personal blog built with Astro 5 and MDX. Fully static; the only client-side JavaScript is the tiny inline theme toggle in `Base.astro`. Design is "midnight": near-black background with soft gray text (dark is the lead scheme, light is a same-voice counterpart), hairline borders, mono uppercase micro-labels for section headers and dates, dashed-leader post list, a faint violet radial glow at the top (dark mode only), and a desaturated violet-blue accent reserved for hover/selection. Single centered 620px column, 14px system sans, no nav bar.
+
+**Theming:** all design tokens are CSS custom properties on `:root` in `src/styles/global.css`. Default follows `prefers-color-scheme`; the toggle sets `data-theme="light|dark"` on `<html>` (persisted in localStorage, applied pre-paint in `<head>`). The light token block exists twice (media query + `[data-theme="light"]`) — keep both in sync.
 
 **Key paths:**
-- `app/` — App Router pages and components (server components by default)
-- `app/components/` — Shared components (particles, nav, card, mdx renderer)
-- `content/projects/*.mdx` — Project content files with frontmatter (title, description, published, date, url, repository)
-- `pages/api/incr.ts` — Edge function for Redis pageview increment (IP-based dedup with SHA-256)
-- `contentlayer.config.js` — Defines `Project` and `Page` document types, MDX plugins
-- `util/mouse.ts` — `useMousePosition` hook for particle/card interactions
+- `src/content/blog/*.mdx` — Blog posts. Frontmatter: `title` (required), `date` (required), `description`, `draft`
+- `src/content.config.ts` — Content collection schema (Astro glob loader)
+- `src/layouts/Base.astro` — HTML shell, meta tags, footer
+- `src/pages/index.astro` — Homepage: short intro + chronological post list
+- `src/pages/blog/[...id].astro` — Post pages, route is the file path under `src/content/blog/`
+- `src/pages/rss.xml.ts` — RSS feed
+- `src/styles/global.css` — All shared styling; theming via CSS custom properties on `:root`
 
-**Content pipeline:** Contentlayer processes `content/` MDX files at build time. Projects must have `published: true` in frontmatter to appear. Computed fields generate `path` and `slug` from file paths.
-
-**Client vs Server:** Components using interactivity (particles, cards, nav) have `"use client"` directives. Project listing pages fetch Redis pageview counts server-side with 60s ISR revalidation.
-
-## Environment Variables
-
-- `UPSTASH_REDIS_REST_URL` — Redis connection URL
-- `UPSTASH_REDIS_REST_TOKEN` — Redis auth token
-
-## Path Alias
-
-`@/*` maps to project root (tsconfig paths).
+**Conventions:**
+- Code highlighting uses Shiki dual themes (github-light/github-dark) configured in `astro.config.mjs`; the dark-mode override lives in `global.css`
+- Drafts (`draft: true`) are excluded everywhere (homepage, post routes, RSS)
+- Keep the design minimal: prefer editing CSS custom properties over adding new styles, and avoid adding client-side JS

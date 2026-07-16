@@ -1,0 +1,296 @@
+/* midnight: dark is the lead, light is the same voice in daylight */
+:root {
+  --bg: #0a0a0a;
+  --bg-code: #0d0d0f;
+  --code-inline-bg: rgba(255, 255, 255, 0.05);
+  --text: #a0a0a0;
+  --text-strong: #ededed;
+  --text-em: #d4d4d4;
+  --text-dim: #6e6e6e;
+  --marker: #5a5a5a;
+  --hairline: rgba(255, 255, 255, 0.08);
+  --underline: rgba(255, 255, 255, 0.16);
+  --accent: #9aa8d8;
+  --accent-underline: rgba(154, 168, 216, 0.5);
+  --accent-outline: rgba(154, 168, 216, 0.6);
+  --selection: rgba(125, 145, 215, 0.28);
+  --glow: rgba(120, 140, 210, 0.075);
+  --icon-sun: block;
+  --icon-moon: none;
+
+  color-scheme: dark;
+}
+
+/* light tokens apply when the OS prefers light (unless manually set to dark),
+   or when the user explicitly toggles light. Keep both blocks in sync. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #fafafa;
+    --bg-code: #f1f1f3;
+    --code-inline-bg: rgba(0, 0, 0, 0.045);
+    --text: #55565c;
+    --text-strong: #1b1b1f;
+    --text-em: #3a3a40;
+    --text-dim: #8b8b90;
+    --marker: #b3b3b8;
+    --hairline: rgba(0, 0, 0, 0.09);
+    --underline: rgba(0, 0, 0, 0.18);
+    --accent: #5261a8;
+    --accent-underline: rgba(82, 97, 168, 0.5);
+    --accent-outline: rgba(82, 97, 168, 0.6);
+    --selection: rgba(110, 130, 200, 0.22);
+    --glow: transparent;
+    --icon-sun: none;
+    --icon-moon: block;
+
+    color-scheme: light;
+  }
+}
+
+:root[data-theme="light"] {
+  --bg: #fafafa;
+  --bg-code: #f1f1f3;
+  --code-inline-bg: rgba(0, 0, 0, 0.045);
+  --text: #55565c;
+  --text-strong: #1b1b1f;
+  --text-em: #3a3a40;
+  --text-dim: #8b8b90;
+  --marker: #b3b3b8;
+  --hairline: rgba(0, 0, 0, 0.09);
+  --underline: rgba(0, 0, 0, 0.18);
+  --accent: #5261a8;
+  --accent-underline: rgba(82, 97, 168, 0.5);
+  --accent-outline: rgba(82, 97, 168, 0.6);
+  --selection: rgba(110, 130, 200, 0.22);
+  --glow: transparent;
+  --icon-sun: none;
+  --icon-moon: block;
+
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  margin: 0 auto;
+  max-width: 620px;
+  min-height: 100dvh;
+  padding: 4rem 1.5rem 6rem;
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica,
+    Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--text-strong);
+}
+
+a {
+  color: var(--text-strong);
+  text-decoration: none;
+  transition: color 120ms ease;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+a:focus-visible {
+  outline: 1px solid var(--accent-outline);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+h1 {
+  color: var(--text-strong);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.6rem;
+}
+
+/* mono micro-label for section headers and meta */
+.mono-label {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.mono-date {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--text-dim);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ── article typography ──────────────────── */
+
+article h2,
+article h3,
+article h4 {
+  color: var(--text-strong);
+  font-size: 16px;
+  font-weight: 550;
+  letter-spacing: -0.015em;
+  margin: 2.25rem 0 1rem;
+}
+
+article h3,
+article h4 {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+article p {
+  margin: 0 0 1.1rem;
+}
+
+article em {
+  color: var(--text-em);
+  font-style: italic;
+}
+
+article strong {
+  color: var(--text-strong);
+  font-weight: 500;
+}
+
+article a {
+  text-decoration: underline;
+  text-decoration-color: var(--underline);
+  text-underline-offset: 3px;
+}
+
+article a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent-underline);
+}
+
+article ul,
+article ol {
+  margin: 0 0 1.1rem;
+  padding-left: 1.1rem;
+  list-style: none;
+}
+
+article ol {
+  list-style: decimal;
+  padding-left: 1.45rem;
+}
+
+article li {
+  position: relative;
+  padding-left: 0.35rem;
+  margin-bottom: 0.35rem;
+}
+
+article ul li::before {
+  content: "–";
+  position: absolute;
+  left: -1.1rem;
+  color: var(--marker);
+}
+
+article ol li::marker {
+  color: var(--marker);
+  font-variant-numeric: tabular-nums;
+}
+
+article code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  color: var(--text-em);
+  background: var(--code-inline-bg);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+article blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 1px solid var(--accent-underline);
+}
+
+article blockquote p {
+  color: var(--text-strong);
+}
+
+article hr {
+  margin: 2rem 0;
+  border: none;
+  border-top: 1px solid var(--hairline);
+}
+
+article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+article pre {
+  margin: 1.5rem 0;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  overflow-x: auto;
+  line-height: 1.65;
+}
+
+article pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 12.5px;
+  display: block;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.1rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.375rem 0.75rem 0.375rem 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* Shiki dual themes: light inline colors by default, dark palette when the
+   effective scheme is dark (OS preference, unless manually overridden) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) article .astro-code,
+  :root:not([data-theme="light"]) article .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
+}
+
+:root[data-theme="dark"] article .astro-code,
+:root[data-theme="dark"] article .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
+
+article .astro-code {
+  background-color: var(--bg-code) !important;
+}

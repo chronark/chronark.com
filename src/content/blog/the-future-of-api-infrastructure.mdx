@@ -1,0 +1,43 @@
+---
+title: The Future of API Infrastructure
+description: Unkey enables developers to deploy secure and scalable APIs with unmatched developer experience.
+date: 2025-04-14
+---
+
+Unkey enables developers to deploy secure and scalable APIs with unmatched developer experience. The platform provides the infrastructure foundation so developers can focus on building their core products. From day one, every API on Unkey can be deployed globally across multiple regions, ensuring low latency and high availability for users worldwide by default.
+
+## Preview Deployments with Safe Rollouts
+
+Every PR gets a complete deployment with its own unique domain for testing and sharing. Unkey automatically detects breaking API changes between versions, preventing compatibility surprises. To prevent regressions, the platform can mirror incoming API requests to a staging environment. While only the production deployment responds to actual users, responses from both environments can be compared side-by-side to catch discrepancies in behavior, status codes, or response times. This risk-free approach validates code against real-world traffic patterns without exposing users to untested changes. When ready, changes can be rolled out globally with a single click.
+
+## Instant Rollbacks
+
+Deployments gone wrong shouldn't ruin a developer's day. With traditional containers, "rolling back" means rebuilding images, redeploying, and waiting on health checks—often taking 10+ minutes while users experience errors. Unkey keeps previous deployments alive and ready, so rollbacks are just routing changes at the gateway level. One click and traffic instantly flows to the last working version while the team fixes the problem at their leisure. True recovery in seconds, not hours.
+
+## Authentication, Authorization & Rate Limiting
+
+APIs face constant threats from malicious actors and overwhelming legitimate usage. Unkey equips APIs with robust security layers: authentication to verify identities, authorization to control access, and rate limiting to prevent resource exhaustion. These integrated protections shield applications from common attack vectors while ensuring legitimate users maintain appropriate access levels.
+
+## Built-in Observability
+
+API developers shouldn't need separate monitoring tools. Unkey captures everything needed to understand API and user behavior: request flows, performance bottlenecks, error patterns, and usage trends—all in a single interface. When something breaks, the context to fix it is already there.
+
+## API Infrastructure Toolkit
+
+Most APIs require auxiliary services that are time-consuming to build or integrate. Unkey provides these essential tools out of the box. Developers can track and query events with an audit logging service that meets compliance requirements without custom development. Credentials can be stored securely using secrets management with proper encryption and access controls. APIs can be monetized through native integrations with Stripe and other billing platforms, without requiring developers to build complex metering systems.
+
+## Pricing that makes sense
+
+Traditional infrastructure charges for idle resources, while serverless has unpredictable costs during traffic spikes. Unkey charges based on CPU clock time rather than wall clock time, meaning developers only pay for actual processing their APIs perform, not for containers sitting idle. When APIs receive no traffic, resources automatically scale down, resulting in zero cost during quiet periods. Unlike pure serverless platforms where traffic spikes lead to thousands of function instances, Unkey's container-based approach means each instance handles multiple concurrent requests, providing natural cost protection during surges.
+
+## Open Source Without Lock-in
+
+Vendor lock-in remains a significant risk for developers building on proprietary platforms. Unkey is open source, giving developers complete control over their infrastructure. The system avoids dependency on any proprietary services - including its own. For teams that want to run Unkey themselves, they can deploy the exact same stack without missing features or hidden dependencies. Infrastructure remains portable and under developer control, ensuring long-term technical flexibility for API projects.
+
+## Enterprise-Ready with BYOC
+
+Large organizations need control over where their workloads run. Unkey's Bring Your Own Cloud option lets enterprises keep compute resources within their existing cloud environments while Unkey manages the control plane. Organizations can deploy to their AWS, GCP, or Azure accounts, maintain data residency compliance, leverage existing security configurations, and utilize reserved instance pricing—all while getting Unkey's full feature set. No compromises between modern developer experience and enterprise security requirements.
+
+## The Future of API Infrastructure
+
+Unkey represents a fundamental shift in how APIs are deployed and managed. By combining the flexibility of containers with the economics of serverless, global distribution by default, and integrated security and observability, Unkey eliminates the traditional trade-offs developers face. The result is a platform that grows with developers' needs, from individual projects to enterprise deployments, without sacrificing performance, control, or cost efficiency. API infrastructure should be a foundation that empowers innovation, not a constraint that limits it.
