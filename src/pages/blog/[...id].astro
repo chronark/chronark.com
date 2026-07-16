@@ -21,7 +21,11 @@ const formatDate = (date: Date) =>
   });
 ---
 
-<Base title={post.data.title} description={post.data.description}>
+<Base
+  title={post.data.title}
+  description={post.data.description}
+  ogImage={`/og/${post.id}.png`}
+>
   <nav>
     <a href="/" class="mono-label">← home</a>
   </nav>
