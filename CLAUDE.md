@@ -22,6 +22,7 @@ Minimal personal blog built with Astro 5 and MDX. Fully static; the only client-
 - `src/pages/blog/[...id].astro` — Post pages, route is the file path under `src/content/blog/`
 - `src/pages/rss.xml.ts` — RSS feed
 - `src/pages/index.md.ts`, `src/pages/blog/[...id].md.ts` — markdown mirrors: every page is also available as raw markdown by appending `.md` to its URL (the homepage intro is duplicated in `index.md.ts`, keep in sync)
+- `src/lib/og.ts`, `src/pages/og/*.png.ts` — OpenGraph images, pregenerated at build time via satori + resvg (midnight-styled card, Inter from @fontsource); `Base.astro` takes an `ogImage` prop, defaulting to `/og/home.png`
 - `src/styles/global.css` — All shared styling; theming via CSS custom properties on `:root`
 
 **Conventions:**

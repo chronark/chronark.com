@@ -13,5 +13,10 @@
     "@astrojs/mdx": "^4.3.0",
     "@astrojs/rss": "^4.0.12",
     "astro": "^5.12.0"
+  },
+  "devDependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@resvg/resvg-js": "^2.6.2",
+    "satori": "^0.28.0"
   }
 }

@@ -8,6 +8,9 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 RUN pnpm install --frozen-lockfile
 
 COPY . .
+
+ARG SITE_URL=https://chronark.com
+ENV SITE_URL=$SITE_URL
 RUN pnpm build
 
 FROM caddy:alpine
