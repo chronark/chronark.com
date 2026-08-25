@@ -1,0 +1,14 @@
+---
+import * as stylex from "@stylexjs/stylex";
+import { article, articleMarker } from "../../styles/article.styles";
+
+// Shiki passes class="astro-code ..." and an inline style; keep both.
+const { class: cls, style, ...rest } = Astro.props;
+const attrs = stylex.attrs(article.pre, articleMarker);
+---
+
+<pre
+  {...rest}
+  class:list={[cls, attrs.class]}
+  style={style}
+  data-codeblock><slot /></pre>

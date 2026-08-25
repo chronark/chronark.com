@@ -1,0 +1,10 @@
+---
+import * as stylex from "@stylexjs/stylex";
+import { link } from "../../styles/base.styles";
+import { article } from "../../styles/article.styles";
+
+const { class: cls, ...rest } = Astro.props;
+const attrs = stylex.attrs(link.base, article.a);
+---
+
+<a {...rest} class:list={[cls, attrs.class]}><slot /></a>

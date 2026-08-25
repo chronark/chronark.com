@@ -1,5 +1,8 @@
 ---
+import * as stylex from "@stylexjs/stylex";
 import "../styles/global.css";
+import { base, link } from "../styles/base.styles";
+import { darkTheme, lightTheme } from "../styles/themes";
 
 interface Props {
   title: string;
@@ -14,10 +17,18 @@ const {
 } = Astro.props;
 
 const ogImageUrl = new URL(ogImage, Astro.site);
+
+// class names for the forced themes; the inline scripts below apply them.
+// data-theme is set alongside for the plain-CSS bits (color-scheme,
+// ::selection, Shiki) in global.css.
+const themeClass = {
+  light: stylex.attrs(lightTheme).class ?? "",
+  dark: stylex.attrs(darkTheme).class ?? "",
+};
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" {...stylex.attrs(base.html)}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -40,18 +51,25 @@ const ogImageUrl = new URL(ogImage, Astro.site);
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={ogImageUrl} />
-    <script is:inline>
+    <script is:inline define:vars={{ themeClass }}>
       const stored = localStorage.getItem("theme");
       if (stored === "light" || stored === "dark") {
-        document.documentElement.dataset.theme = stored;
+        const root = document.documentElement;
+        root.dataset.theme = stored;
+        root.classList.add(...themeClass[stored].split(" "));
       }
     </script>
   </head>
-  <body>
-    <div class="glow" aria-hidden="true"></div>
-    <button id="theme-toggle" type="button" aria-label="Toggle color scheme">
+  <body {...stylex.attrs(base.body)}>
+    <div {...stylex.attrs(base.glow)} aria-hidden="true"></div>
+    <button
+      id="theme-toggle"
+      type="button"
+      aria-label="Toggle color scheme"
+      {...stylex.attrs(base.toggle)}
+    >
       <svg
-        class="icon-sun"
+        {...stylex.attrs(base.icon, base.iconSun)}
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -64,7 +82,7 @@ const ogImageUrl = new URL(ogImage, Astro.site);
         ></path>
       </svg>
       <svg
-        class="icon-moon"
+        {...stylex.attrs(base.icon, base.iconMoon)}
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -76,82 +94,15 @@ const ogImageUrl = new URL(ogImage, Astro.site);
       </svg>
     </button>
     <slot />
-    <footer>
-      <a href="https://github.com/chronark">github</a>
-      <a href="https://x.com/chronark">x</a>
-      <a href="/rss.xml">rss</a>
+    <footer {...stylex.attrs(base.footer)}>
+      <a href="https://github.com/chronark" {...stylex.attrs(link.base, base.footerLink)}>github</a>
+      <a href="https://x.com/chronark" {...stylex.attrs(link.base, base.footerLink)}>x</a>
+      <a href="/rss.xml" {...stylex.attrs(link.base, base.footerLink)}>rss</a>
     </footer>
   </body>
 </html>
 
-<style>
-  /* the one atmospheric accent: a faint glow bleeding in from the top */
-  .glow {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background: radial-gradient(
-      60% 38% at 50% -8%,
-      var(--glow),
-      transparent 70%
-    );
-  }
-
-  footer {
-    margin-top: 5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--hairline);
-    display: flex;
-    gap: 1.25rem;
-  }
-
-  footer a {
-    font-size: 13px;
-    color: var(--text-dim);
-  }
-
-  footer a:hover {
-    color: var(--accent);
-  }
-
-  #theme-toggle {
-    position: absolute;
-    top: 1.35rem;
-    right: 1.5rem;
-    color: var(--text-dim);
-    background: none;
-    border: none;
-    padding: 0.4rem;
-    cursor: pointer;
-    transition: color 120ms ease;
-  }
-
-  #theme-toggle svg {
-    width: 15px;
-    height: 15px;
-    display: block;
-  }
-
-  #theme-toggle .icon-sun {
-    display: var(--icon-sun);
-  }
-
-  #theme-toggle .icon-moon {
-    display: var(--icon-moon);
-  }
-
-  #theme-toggle:hover {
-    color: var(--accent);
-  }
-
-  #theme-toggle:focus-visible {
-    outline: 1px solid var(--accent-outline);
-    outline-offset: 3px;
-    border-radius: 2px;
-  }
-</style>
-
-<script is:inline>
+<script is:inline define:vars={{ themeClass }}>
   document.getElementById("theme-toggle").addEventListener("click", () => {
     const root = document.documentElement;
     const current =
@@ -159,6 +110,11 @@ const ogImageUrl = new URL(ogImage, Astro.site);
       (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
     const next = current === "light" ? "dark" : "light";
     root.dataset.theme = next;
+    root.classList.remove(
+      ...themeClass.light.split(" "),
+      ...themeClass.dark.split(" "),
+    );
+    root.classList.add(...themeClass[next].split(" "));
     localStorage.setItem("theme", next);
   });
 </script>

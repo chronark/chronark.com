@@ -1,6 +1,10 @@
 ---
 import { getCollection, render } from "astro:content";
+import * as stylex from "@stylexjs/stylex";
+import { articleComponents } from "../../components/article/components";
 import Base from "../../layouts/Base.astro";
+import { link, typo } from "../../styles/base.styles";
+import { post as postStyles } from "../../styles/post.styles";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => !data.draft);
@@ -26,38 +30,18 @@ const formatDate = (date: Date) =>
   description={post.data.description}
   ogImage={`/og/${post.id}.png`}
 >
-  <nav>
-    <a href="/" class="mono-label">← home</a>
+  <nav {...stylex.attrs(postStyles.nav)}>
+    <a href="/" {...stylex.attrs(link.base, typo.monoLabel, postStyles.navLink)}
+      >← home</a
+    >
   </nav>
-  <header class="article-head">
-    <h1>{post.data.title}</h1>
-    <time datetime={post.data.date.toISOString()} class="mono-date">
+  <header {...stylex.attrs(postStyles.articleHead)}>
+    <h1 {...stylex.attrs(typo.h1, postStyles.h1)}>{post.data.title}</h1>
+    <time datetime={post.data.date.toISOString()} {...stylex.attrs(typo.monoDate)}>
       {formatDate(post.data.date)}
     </time>
   </header>
   <article>
-    <Content />
+    <Content components={articleComponents} />
   </article>
 </Base>
-
-<style>
-  nav {
-    margin-bottom: 4.5rem;
-  }
-
-  nav a:hover {
-    color: var(--accent);
-  }
-
-  .article-head {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .article-head h1 {
-    margin: 0;
-    flex: 1;
-  }
-</style>

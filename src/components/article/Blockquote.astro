@@ -1,0 +1,8 @@
+---
+import * as stylex from "@stylexjs/stylex";
+import { article, articleMarker } from "../../styles/article.styles";
+---
+
+<blockquote {...stylex.attrs(article.blockquote, articleMarker)} data-blockquote>
+  <slot />
+</blockquote>

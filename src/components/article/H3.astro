@@ -1,0 +1,6 @@
+---
+import * as stylex from "@stylexjs/stylex";
+import { article } from "../../styles/article.styles";
+---
+
+<h3 {...stylex.attrs(article.h2, article.h3)}><slot /></h3>

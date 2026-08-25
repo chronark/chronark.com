@@ -1,0 +1,6 @@
+---
+import * as stylex from "@stylexjs/stylex";
+import { article, articleMarker } from "../../styles/article.styles";
+---
+
+<ul {...stylex.attrs(article.ul, articleMarker)} data-list="ul"><slot /></ul>

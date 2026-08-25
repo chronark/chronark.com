@@ -12,11 +12,17 @@
   "dependencies": {
     "@astrojs/mdx": "7.0.3",
     "@astrojs/rss": "4.0.19",
+    "@stylexjs/stylex": "^0.19.0",
     "astro": "7.0.9"
   },
   "devDependencies": {
+    "@babel/core": "^8.0.1",
+    "@babel/preset-typescript": "^8.0.1",
     "@fontsource/inter": "5.2.8",
     "@resvg/resvg-js": "2.6.2",
+    "@stylexjs/babel-plugin": "^0.19.0",
+    "@stylexjs/postcss-plugin": "^0.19.0",
+    "postcss": "^8.5.26",
     "satori": "0.28.0"
   }
 }
