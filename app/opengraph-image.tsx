@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/server";
 
 export const runtime = "edge";
-export const alt = "Jacob Yi — Christian, Contrarian, Stoic";
+export const alt = "Jacob Yi, technical deal origination and AI automation systems";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -24,7 +24,7 @@ export default function Image() {
           Jacob Yi
         </div>
         <div style={{ marginTop: 24, fontSize: 36, color: "#a1a1aa" }}>
-          Christian · Contrarian · Stoic
+          Technical Deal Origination · AI Automation
         </div>
         <div style={{ marginTop: 48, fontSize: 26, color: "#71717a" }}>
           jacobyi.info

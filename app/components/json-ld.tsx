@@ -4,8 +4,9 @@ const personAndSite = [
     "@type": "Person",
     name: "Jacob Yi",
     url: "https://jacobyi.info",
-    jobTitle: "Full-stack developer",
-    description: "Jacob Yi - Christian, Contrarian, Stoic",
+    jobTitle: "Technical deal origination and AI automation",
+    description:
+      "I build AI-native deal origination, research, and outbound systems for private equity, acquisition entrepreneurs, and B2B operators.",
     sameAs: [
       "https://www.linkedin.com/in/yi-jacob/",
       "https://github.com/Yi-Jacob",

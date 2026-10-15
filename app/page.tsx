@@ -19,7 +19,7 @@ const navigation = [
 
 export default function Home() {
   return (
-    <><div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
+    <><div className="relative flex flex-col items-center justify-center w-full min-h-screen px-4 py-24 overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
         <nav className="my-16 animate-fade-in">
           <ul className="flex items-center justify-center gap-4">
             {navigation.map((item) => (
@@ -42,6 +42,43 @@ export default function Home() {
         </h1>
 
         <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+
+        <div className="z-10 max-w-2xl px-6 mt-10 text-center">
+          <p className="font-display text-lg text-zinc-200 sm:text-2xl">
+            Technical Deal Origination | AI Automation | Full-Stack Systems
+          </p>
+          <p className="mt-6 text-sm text-zinc-400 sm:text-base">
+            I build AI-native sourcing and workflow systems for private equity,
+            acquisition entrepreneurs, and B2B operators.
+          </p>
+          <div className="mt-8 space-y-2 text-sm text-left text-zinc-400 sm:text-base">
+            <p className="text-xs tracking-wide text-zinc-500 uppercase">
+              Current work
+            </p>
+            <p>
+              <span className="text-zinc-200">Bull Holdings:</span> Deal
+              origination infrastructure for active PE and add-on mandates.
+            </p>
+            <p>
+              <span className="text-zinc-200">Coverable:</span> AI-native
+              workflow software for immigration law firms.
+            </p>
+            <p>
+              <span className="text-zinc-200">Consulting:</span> Custom CRMs,
+              lead research, outbound automation, and internal tools.
+            </p>
+          </div>
+          <p className="mt-8 text-sm text-zinc-400 sm:text-base">
+            If your team has a sourcing, research, or workflow bottleneck, I can
+            build the operating system behind it.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center px-8 py-3 mt-8 font-medium duration-200 rounded-full bg-zinc-100 hover:bg-white text-zinc-900"
+          >
+            Discuss an origination workflow
+          </Link>
+        </div>
       </div></>
   );
 

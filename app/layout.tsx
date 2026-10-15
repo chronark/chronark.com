@@ -8,14 +8,15 @@ import { JsonLd } from "./components/json-ld";
 export const metadata: Metadata = {
   metadataBase: new URL("https://jacobyi.info"),
   title: {
-    default: "Jacob Yi",
+    default: "Jacob Yi | AI Deal Origination & Automation Systems",
     template: "Jacob Yi | %s",
   },
-  description: "Jacob Yi - Christian, Contrarian, Stoic",
+  description:
+    "I build AI-native deal origination, research, and outbound systems for private equity, acquisition entrepreneurs, and B2B operators.",
   openGraph: {
-    title: "jacobyi.info",
+    title: "Jacob Yi | AI Deal Origination & Automation Systems",
     description:
-      "Jacob Yi - Christian, Contrarian, Stoic",
+      "I build AI-native deal origination, research, and outbound systems for private equity, acquisition entrepreneurs, and B2B operators.",
     url: "https://jacobyi.info",
     siteName: "jacobyi.info",
     locale: "en-US",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Jacob Yi",
+    title: "Jacob Yi | AI Deal Origination & Automation Systems",
     card: "summary_large_image",
   },
   icons: {

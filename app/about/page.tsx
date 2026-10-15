@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Jacob Yi, a full-stack developer, creates dynamic web apps. Passionate about coding, faith, family, travel, and embracing future opportunities.',
+  description: 'Technical deal origination and AI automation. Jacob Yi builds sourcing, research, and outbound systems for private equity, acquisition entrepreneurs, and B2B operators.',
   alternates: {
     canonical: '/about',
   },
@@ -22,39 +22,26 @@ export default function About() {
               About
             </h2>
             <p className="mt-4 text-zinc-400">
-              Hey there! I'm Jacob Yi, a full-stack software developer with a
-              knack for crafting dynamic and user-friendly web and mobile
-              applications. My journey in the tech industry has been fueled by a
-              strong passion for coding and a solid background in computer
-              science. Over the years, I've had the opportunity to work on a
-              variety of projects, from simple websites to complex applications,
-              always striving to deliver top-notch results on time.
-            </p>{" "}
-            <p className="mt-4 text-zinc-400">
-              Beyond the realm of coding, I find immense joy in the simple
-              pleasures of life, anchored by my Christian faith, which provides me
-              with strength, purpose, and a profound sense of belonging. In
-              addition to my faith, family holds an irreplaceable place in my
-              heart, serving as my foundation and constant motivation. I find
-              fulfillment in embracing life's adventures, whether it's through
-              travel, running, or delving into the pages of a compelling book.
+              I'm Jacob Yi. I build the systems that find, research, and open
+              conversations with acquisition targets. Most of that work sits
+              behind deal origination: a buying box turned into a live target
+              list, enrichment pipelines that fill in the data a deal actually
+              needs, and outbound infrastructure that tracks every touch.
             </p>
             <p className="mt-4 text-zinc-400">
-              Looking ahead, I'm excited about the endless possibilities that lie
-              on the horizon. Whether it's diving deeper into the world of web
-              development, embarking on new travel adventures, or simply spending
-              quality time with loved ones, I'm eager to embrace each opportunity
-              with open arms. Life is a beautiful journey, and I'm grateful for
-              every moment of it.
+              Today I run Bull Holdings, where I build deal origination
+              infrastructure for active private equity and add-on mandates, and
+              Coverable, AI-native workflow software for immigration law firms. I
+              also build custom CRMs, lead research tooling, outbound automation,
+              and internal tools for small teams. My background is software
+              engineering, so I do the build myself instead of handing off a
+              spec.
             </p>
             <p className="mt-4 text-zinc-400">
-              Who knows where I'll be next? Perhaps leading as the CEO of a
-              successful startup, pounding the pavement as a dedicated marathon
-              runner, earning recognition as a Forbes 30 under 30 honoree, writing
-              a compelling book that resonates with readers, or backpacking across
-              the globe, soaking in the diverse cultures and breathtaking
-              landscapes. Whatever the future holds, I'm ready to embrace the
-              challenges and celebrate the victories along the way.
+              Outside of work, my Christian faith gives me purpose and a sense of
+              belonging, and my family is my foundation. I travel, run, and read
+              when I can. The three words that opened this site still hold:
+              Christian, contrarian, stoic.
             </p>
             <div className="flex mt-3">
               <div className="pb-4 z-10 flex flex-col items-center">

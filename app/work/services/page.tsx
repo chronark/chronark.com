@@ -3,12 +3,21 @@ import { Metadata } from "next";
 import { Navigation } from "../../components/nav";
 
 export const metadata: Metadata = {
-  title: "Consulting",
+  title: "Custom CRM, Research & Outbound Automation",
   description:
-    "I build purpose-driven technology with ethical innovation. Engineering, AI systems, agents, and automation that stays reviewable and accountable.",
+    "Deal sourcing systems, AI research agents, outbound infrastructure, custom CRMs, and data pipelines for private equity, acquisition entrepreneurs, and B2B operators.",
 };
 
 const technologyCards = [
+  {
+    title: "Deal Origination Systems",
+    items: [
+      "Buying box to target list workflows",
+      "CRM builds and data schemas",
+      "Enrichment and research pipelines",
+      "Outbound automation with human review",
+    ],
+  },
   {
     title: "Ethical Development",
     items: [
@@ -68,8 +77,11 @@ const jsonLd = {
       "@id": "https://www.jacobyi.info/#jacob",
       name: "Jacob Yi",
       url: "https://www.jacobyi.info",
-      jobTitle: "Software, AI, and SEO Consultant",
-      sameAs: ["https://yilegacyventures.com"],
+      jobTitle: "Technical deal origination and AI automation",
+      sameAs: [
+        "https://www.linkedin.com/in/yi-jacob/",
+        "https://github.com/Yi-Jacob",
+      ],
     },
     {
       "@type": "ProfessionalService",
@@ -77,12 +89,14 @@ const jsonLd = {
       name: "Jacob Yi Consulting",
       url: "https://www.jacobyi.info/work/services",
       description:
-        "Software engineering, web development, SEO, and AI agent systems for operators and professional service firms.",
+        "Deal sourcing systems, AI research agents, outbound infrastructure, custom CRM builds, and data pipelines.",
       provider: { "@id": "https://www.jacobyi.info/#jacob" },
       areaServed: "US",
       serviceType: [
+        "Deal origination systems",
+        "CRM builds",
+        "Outbound automation",
         "Web development",
-        "SEO",
         "Custom software",
         "AI agents and automation",
       ],
@@ -132,7 +146,7 @@ export default function Services() {
             portals, I build with purpose, integrity, and long-term value in mind.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {technologyCards.map(({ title, items }) => (
               <div
                 key={title}
